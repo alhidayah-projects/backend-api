@@ -1,0 +1,10 @@
+### register
+
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+    
+    {   "name": "John Doe", 
+        "email": "fajar@gmail.com",
+        "password": "12345678", 
+        "password_confirmation": "12345678" 
+    }
