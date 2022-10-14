@@ -13,7 +13,7 @@ Content-Type: application/json
 POST http://localhost:8000/api/login
 Content-Type: application/json
 
-    {   "email": "fajar@gmail.com",
+    {   "email": "rahman@gmail.com",
         "password": "12345678" 
     }
 
@@ -21,10 +21,10 @@ Content-Type: application/json
 GET http://localhost:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NjU1ODgxLCJleHAiOjE2NjU2NTk0ODEsIm5iZiI6MTY2NTY1NTg4MSwianRpIjoiblRnZEdHNlZXWDE5QkFRSiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ey-NudgKEkUitMunmxkqBmU0TAPfnRWkFblQR9rI8mE
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NzUyODk4LCJleHAiOjE2NjU3NTY0OTgsIm5iZiI6MTY2NTc1Mjg5OCwianRpIjoiTFUzTHNPV0FSSEhaa25jaSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GkOq1BAGjyCdL8TUaFS3NLVxzZtft_6lSGmfsJB0dz8
 
 ### logout
 POST http://localhost:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NjU1ODgxLCJleHAiOjE2NjU2NTk0ODEsIm5iZiI6MTY2NTY1NTg4MSwianRpIjoiblRnZEdHNlZXWDE5QkFRSiIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ey-NudgKEkUitMunmxkqBmU0TAPfnRWkFblQR9rI8mE
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NzUyODk4LCJleHAiOjE2NjU3NTY0OTgsIm5iZiI6MTY2NTc1Mjg5OCwianRpIjoiTFUzTHNPV0FSSEhaa25jaSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GkOq1BAGjyCdL8TUaFS3NLVxzZtft_6lSGmfsJB0dz8
