@@ -7,6 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-##instalasi jwt
+##setup sanctum package
 
--   php artisan jwt:secret
+-   composer require laravel/sanctum
+-   php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+-   php artisan migrate
+-   php artisan make:controller Api/AuthController
+-   php artisan serve
