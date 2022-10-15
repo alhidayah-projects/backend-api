@@ -1,30 +1,44 @@
 ### register
-
-POST http://localhost:8000/api/register
+POST http://127.0.0.1:8000/api/register
+Accept: application/json
 Content-Type: application/json
-    
-    {   "name": "Rahman", 
-        "email": "rahman@gmail.com",
-        "password": "12345678", 
-        "password_confirmation": "12345678" 
-    }
+
+{
+    "name": "test",
+    "email": "test1@mail.com",
+    "password": "12345678"
+
+}
 
 ### login
-POST http://localhost:8000/api/login
-Content-Type: application/json
-
-    {   "email": "rahman@gmail.com",
-        "password": "12345678" 
-    }
-
-### get user (yang sudah login)
-GET http://localhost:8000/api/user
+POST http://127.0.0.1:8000/api/login
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NzUyODk4LCJleHAiOjE2NjU3NTY0OTgsIm5iZiI6MTY2NTc1Mjg5OCwianRpIjoiTFUzTHNPV0FSSEhaa25jaSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GkOq1BAGjyCdL8TUaFS3NLVxzZtft_6lSGmfsJB0dz8
+
+{
+    "email": "test1@mail.com",
+    "password": "123456789"
+}
+
+### get user
+GET http://127.0.0.1:8000/api/user
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
 
 ### logout
-POST http://localhost:8000/api/logout
+POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjY1NzUyODk4LCJleHAiOjE2NjU3NTY0OTgsIm5iZiI6MTY2NTc1Mjg5OCwianRpIjoiTFUzTHNPV0FSSEhaa25jaSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GkOq1BAGjyCdL8TUaFS3NLVxzZtft_6lSGmfsJB0dz8
+Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
+### update user
+PUT http://127.0.0.1:8000/api/user
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
+
+{
+    "name": "testing ke satu",
+    "email": "test1@mail.com",
+    "password": "123456789"
+}
