@@ -16,29 +16,29 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "test1@mail.com",
-    "password": "123456789"
+    "email": "admin@mail.com",
+    "password": "12345678"
 }
 
 ### get user
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
+Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
 
 ### logout
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
+Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
+
 ### update user
 PUT http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 2|TayR20zRKCFTY0JYXATMuPd9TDuhShBG95LBBl4r
+Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
 
 {
     "name": "testing ke satu",
-    "email": "test1@mail.com",
-    "password": "123456789"
+    "email": "admin@mail.com"
 }
