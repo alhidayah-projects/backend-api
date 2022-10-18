@@ -29,3 +29,9 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user', [\App\Http\Controllers\Api\AuthController::class, 'update']);
 });
+
+//forgot password
+Route::post('/forgot-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'forgotPassword']);
+
+//reset password
+Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'reset']);

@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
     "name": "test",
-    "email": "test1@mail.com",
+    "email": "admin@mail.com",
     "password": "12345678"
 
 }
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "email": "admin@mail.com",
-    "password": "12345678"
+    "password": "12345679"
 }
 
 ### get user
@@ -41,4 +41,25 @@ Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
 {
     "name": "testing ke satu",
     "email": "admin@mail.com"
+}
+
+### forgot password
+POST http://127.0.0.1:8000/api/forgot-password
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "admin@mail.com"
+}
+
+### reset password
+POST http://127.0.0.1:8000/api/reset-password
+Accept: application/json
+Content-Type: application/json
+
+{
+    "token": "c39000b5d78f6032583d047dec8e4ad32ad0a092f82a14a1ddbb1756460f9a5a",
+    "email": "admin@mail.com",
+    "password": "12345679",
+    "password_confirmation": "12345679"
 }
