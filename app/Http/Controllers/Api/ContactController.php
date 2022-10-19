@@ -36,11 +36,27 @@ class ContactController extends Controller
         return ['message' => 'Terima kasih telah menghubungi kami'];
     }
 
-    // get contact data
+    // get contact all data
     public function getContactData()
     {
         $contact = Contact::all();
         return response()->json($contact);
+    }
+
+    // get contact data by id
+    public function getContactDataById($id)
+    {
+        $contact = Contact::find($id);
+        return response()->json($contact);
+    }
+
+    // delete contact data by id
+    public function deleteContactDataById($id)
+    {
+        $contact = Contact::find($id);
+        $contact->delete();
+
+        return response()->json('Data berhasil dihapus');
     }
     
 }
