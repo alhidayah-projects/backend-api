@@ -13,18 +13,26 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        // ADMIN ONLY REGISTER ADMIN OR PENGURUS
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'You are not authorized to access this page'
+            ], 403);
+        }
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'role' => 'required',
             'email' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8'
         ]);
-
+        
         if ($validator->fails()) {
             return response()->json($validator->errors());
         }
 
         $user = User::create([
             'name' => $request->name,
+            'role' => $request->role,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
@@ -36,6 +44,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'Bearer'
         ]);
+    
     }
 
     public function login(Request $request)

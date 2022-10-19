@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+// Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+//login
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -42,3 +43,8 @@ Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'get
 Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'getContactDataById']);
 Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
 Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
+
+// Admin only register admin or pengurus
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+});
