@@ -35,4 +35,22 @@ class ContactController extends Controller
             'data' => $contact
         ], 200);
     }
+
+    //get contact by id
+    public function getContactById($id)
+    {
+        $contact = Contact::find($id);
+
+        if ($contact) {
+            return response()->json([
+                'message' => 'success',
+                'data' => $contact
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'contact not found',
+                'data' => null
+            ], 404);
+        }
+    }
 }
