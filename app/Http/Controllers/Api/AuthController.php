@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    //register
     public function register(Request $request)
     {
-        // ADMIN ONLY REGISTER ADMIN OR PENGURUS
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'You are not authorized to access this page'
+                'message' => 'anda bukan admin, tidak bisa register admin atau pengurus'
             ], 403);
         }
         $validator = Validator::make($request->all(), [
@@ -47,6 +47,7 @@ class AuthController extends Controller
     
     }
 
+    //login
     public function login(Request $request)
     {
         if (! Auth::attempt($request->only('email', 'password'))) {

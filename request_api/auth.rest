@@ -1,48 +1,48 @@
-### register
-POST http://127.0.0.1:8000/api/register
-Accept: application/json
-Content-Type: application/json
-Authorization: 4|mJDCbmracoadQVpbI736t665SEpG0dhV1KUlofjW
-    
-    {
-        "name": "John Doe",
-        "role": "pengurus",
-        "email": "alhidayahkircon@gmail.com",
-        "password": "12345678",
-        "password_confirmation": "12345678"
-    }
-
-
 ### login
 POST http://127.0.0.1:8000/api/login
 Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "alhidayahkircon@gmail.com",
-    "password": "87654321"
+    "email": "",
+    "password": ""
 }
+
+### register
+POST http://127.0.0.1:8000/api/register
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {}
+    
+    {
+        "name": "",
+        "role": "",
+        "email": "",
+        "password": "",
+        "password_confirmation": ""
+    }
 
 ### get user
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 13|aeTBTZSFpCrGcUVqRAYNwOTt1c73zq0vYJxb7sDD
+Authorization: Bearer {}
+
 ### logout
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
+Authorization: Bearer {}
 
 ### update user
 PUT http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 13|aeTBTZSFpCrGcUVqRAYNwOTt1c73zq0vYJxb7sDD
+Authorization: Bearer {}
 
 {
-    "name": "JON",
-    "email": "alhidayahkircon@gmail.com"
+    "name": "",
+    "email": ""
 }
 
 ### forgot password
@@ -51,7 +51,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "alhidayahkircon@gmail.com"
+    "email": ""
 }
 
 ### reset password
@@ -60,22 +60,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "token": "50f35d90a131bfcc6a627d150ddc7b039f478e200003dd1b703fcdf5b0aa5e39",
-    "email": "alhidayahkircon@gmail.com",
-    "password": "87654321",
-    "password_confirmation": "87654321"
+    "token": "",
+    "email": "",
+    "password": "",
+    "password_confirmation": ""
 }
-
-### rgister
-POST http://127.0.0.1:8000/api/register
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer 10|rEUZFxPqf9QrqJdIfuDG6ibBxWlhB2tsyp9tP909
-    
-    {
-        "name": "John Doe",
-        "role": "pengurus",
-        "email": "alhidayahkircon13@gmail.com",
-        "password": "12345678",
-        "password_confirmation": "12345678"
-    }

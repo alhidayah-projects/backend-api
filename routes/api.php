@@ -14,14 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
-//login
+// Admin only register admin or pengurus
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
+});
+
+// login
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 
+// get user (by token)
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// logout
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
 });
@@ -44,7 +50,3 @@ Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class,
 Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
 Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
 
-// Admin only register admin or pengurus
-Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/register', [\App\Http\Controllers\Api\AuthController::class, 'register']);
-});
