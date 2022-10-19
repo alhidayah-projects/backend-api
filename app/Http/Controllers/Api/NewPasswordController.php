@@ -24,7 +24,7 @@ class NewPasswordController extends Controller
 
         if ($status == Password::RESET_LINK_SENT) {
             return [
-                'status' => __($status)
+                'status' => 'sukses, silahkan cek email anda'
             ];
         }
 
@@ -57,7 +57,7 @@ class NewPasswordController extends Controller
 
         if ($status == Password::PASSWORD_RESET) {
             return response([
-                'message'=> 'Password reset successfully'
+                'message'=> 'reset password berhasil'
             ]);
         }
 
