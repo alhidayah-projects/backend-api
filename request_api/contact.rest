@@ -10,3 +10,8 @@ Content-Type: application/json
     "subject": "testing",
     "keterangan": "saya ingin donasi nih"
 }
+
+### get all contact
+GET http://127.0.0.1:8000/api/contact
+Accept: application/json
+Content-Type: application/json

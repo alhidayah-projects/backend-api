@@ -38,3 +38,4 @@ Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController:
 
 //contact
 Route::post('/contact', [\App\Http\Controllers\Api\ContactController::class, 'store']);
+Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getContactData']);

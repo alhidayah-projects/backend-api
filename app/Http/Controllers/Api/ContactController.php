@@ -35,4 +35,12 @@ class ContactController extends Controller
         Contact::create($request->all());
         return ['message' => 'Terima kasih telah menghubungi kami'];
     }
+
+    // get contact data
+    public function getContactData()
+    {
+        $contact = Contact::all();
+        return response()->json($contact);
+    }
+    
 }
