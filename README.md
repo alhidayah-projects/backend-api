@@ -1,3 +1,13 @@
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/alhidayah-projects/backend-api.git">
+    <img src="./public/assets/logo.png" alt="Logo" width="200" height="270">
+  </a>
+
+  <h2 align="center">Alhidayah Baitul Hatim</h2>
+</p>
+
 # setup sanctum package
 
 ```
