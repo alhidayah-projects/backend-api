@@ -17,14 +17,14 @@ Content-Type: application/json
 
 {
     "email": "fajarsuhanaaa@gmail.com",
-    "password": "12345678"
+    "password": "87654321"
 }
 
 ### get user
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|dh6h64aYaBAFEXkoPfhKBKvCK6Ub2KSM6EmBncMG
+Authorization: Bearer 1|ZyDgFOwIGCnSrHpXMNtzrrRhYjFLce9nKpiLZEu5
 
 ### logout
 POST http://127.0.0.1:8000/api/logout
@@ -58,8 +58,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "token": "9180468ca22a8c66ff7c84f4c617a76bcfb5a22957234742e406f64d531daa71",
+    "token": "9d13c4772595d30a88faa4cc22401c86da533ca0870ab8a05bde0aa6541ab226",
     "email": "fajarsuhanaaa@gmail.com",
-    "password": "11111111",
-    "password_confirmation": "11111111"
+    "password": "87654321",
+    "password_confirmation": "87654321"
 }
