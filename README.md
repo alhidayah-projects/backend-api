@@ -17,7 +17,7 @@
 
 ## Endpoint AUTH
 
--   POST /api/register (regiter)
+-   POST /api/register (register)
 -   POST /api/login (login)
 -   GET /api/user (get user by token)
 -   POST /api/logout (logout)
