@@ -41,3 +41,4 @@ Route::post('/contact', [\App\Http\Controllers\Api\ContactController::class, 'st
 Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getContactData']);
 Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'getContactDataById']);
 Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
+Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);

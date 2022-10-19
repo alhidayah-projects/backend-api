@@ -40,14 +40,32 @@ class ContactController extends Controller
     public function getContactData()
     {
         $contact = Contact::all();
-        return response()->json($contact);
+
+        // if empty data
+        if($contact->isEmpty()){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Contact',
+            'data' => $contact
+        ], 200);
     }
 
     // get contact data by id
     public function getContactDataById($id)
     {
         $contact = Contact::find($id);
-        return response()->json($contact);
+
+        // if empty data
+        if($contact == null){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Contact',
+            'data' => $contact
+        ], 200);
     }
 
     // delete contact data by id
@@ -59,4 +77,10 @@ class ContactController extends Controller
         return response()->json('Data berhasil dihapus');
     }
     
+    // delete all contact data
+    public function deleteAllContactData()
+    {
+        $contact = Contact::truncate();
+        return response()->json('Semua data berhasil dihapus');
+    }
 }
