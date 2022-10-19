@@ -2,13 +2,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/alhidayah-projects/backend-api.git">
-    <img src="./public/assets/logo.png" alt="Logo" width="200" height="270">
+    <img src="./public/assets/logo.png" alt="Logo" width="300" height="300">
   </a>
 
-  <h2 align="center">Alhidayah Baitul Hatim</h2>
+  <h2 align="center">Al-hidayah Baitul Hatim</h2>
 </p>
 
-# setup sanctum package
+**setup sanctum package**
 
 ```
 composer require laravel/sanctum
