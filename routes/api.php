@@ -40,3 +40,4 @@ Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController:
 Route::post('/contact', [\App\Http\Controllers\Api\ContactController::class, 'contact']);
 Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getAllContact']);
 Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'getContactById']);
+Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactById']);

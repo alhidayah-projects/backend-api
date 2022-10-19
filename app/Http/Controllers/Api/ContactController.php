@@ -53,4 +53,23 @@ class ContactController extends Controller
             ], 404);
         }
     }
+
+    //delete contact by id
+    public function deleteContactById($id)
+    {
+        $contact = Contact::find($id);
+
+        if ($contact) {
+            $contact->delete();
+            return response()->json([
+                'message' => 'contact deleted',
+                'data' => null
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'contact not found',
+                'data' => null
+            ], 404);
+        }
+    }
 }
