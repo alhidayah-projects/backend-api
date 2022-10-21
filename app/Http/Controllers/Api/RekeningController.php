@@ -9,32 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class RekeningController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Create new rekening
     public function store(Request $request)
     {
         $request->validate([
@@ -47,6 +23,7 @@ class RekeningController extends Controller
         return ['message' => 'Nomor Rekening Sukses Di Tambahkan'];
     }
 
+    // Get all rekening
     public function getRekeningData(){
         $rekening = Rekening::all();
 
@@ -61,12 +38,7 @@ class RekeningController extends Controller
         ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Get rekening by id
     public function show($id)
     {
         $rekening = Rekening::find($id);
@@ -82,37 +54,23 @@ class RekeningController extends Controller
         ], 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Update rekening by id
     public function update(Request $request, $id)
     {
-        //
-    }
+        $rekening = Rekening::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        // if empty data
+        if($rekening == null){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+
+        $request->validate([
+            'nomor_rekening' => 'required',
+            'nama_bank' => 'required',
+            'atas_nama' => 'required'
+        ]);
+
+        $rekening->update($request->all());
+        return ['message' => 'Data Rekening Berhasil Di Update'];
     }
 }
