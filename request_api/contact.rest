@@ -5,9 +5,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "name": "testing",
-    "email": "fajasuhanaaa@gmail.com",
-    "subject": "testing",
+    "name": "Rifqi",
+    "email": "rifqi1136@gmail.com",
+    "subject": "naonwe",
     "keterangan": "saya ingin donasi nih"
 }
 
@@ -22,7 +22,7 @@ Accept: application/json
 Content-Type: application/json
 
 ### delete contact by id
-DELETE http://127.0.0.1:8000/api/contact/3
+DELETE http://127.0.0.1:8000/api/contact/1
 Accept: application/json
 Content-Type: application/json
 

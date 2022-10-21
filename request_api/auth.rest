@@ -4,35 +4,35 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "",
-    "password": ""
+    "email": "mirasopie1@gmail.com",
+    "password": "87654321"
 }
 
 ### register
 POST http://127.0.0.1:8000/api/register
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer {}
+Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
     
     {
-        "name": "",
-        "role": "",
-        "email": "",
-        "password": "",
-        "password_confirmation": ""
+        "name": "jaka",
+        "role": "pengurus",
+        "email": "mirasopie13@gmail.com",
+        "password": "12345678",
+        "password_confirmation": "12345678"
     }
 
 ### get user
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer {}
+Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
 
 ### logout
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer {}
+Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
 
 ### update user
 PUT http://127.0.0.1:8000/api/user
@@ -51,7 +51,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": ""
+    "email": "mirasopie1@gmail.com"
 }
 
 ### reset password
@@ -60,8 +60,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "token": "",
-    "email": "",
-    "password": "",
-    "password_confirmation": ""
+    "token": "10b4e9db7bef4c87cfd47bb91bfe377b172419e0016ed7f0b4ff64cf60a2b061",
+    "email": "mirasopie1@gmail.com",
+    "password": "87654321",
+    "password_confirmation": "87654321"
 }

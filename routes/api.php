@@ -50,3 +50,6 @@ Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class,
 Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
 Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
 
+//CRUD REKENING
+Route::post('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'store']);
+

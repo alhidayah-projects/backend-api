@@ -1,0 +1,10 @@
+### Tambah rekening
+POST http://127.0.0.1:8000/api/rekening
+Accept: application/json
+Content-Type: application/json
+
+{
+    "nomor_rekening" : "87654321",
+    "nama_bank" : "BANK CENTRAL ASIA",
+    "atas_nama" : "Supriyadi"
+}
