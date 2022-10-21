@@ -54,3 +54,5 @@ php artisan serve
 -   GET : `/api/rekening`
 -   GET : `/api/rekening{id}`
 -   PUT : `/api/rekening{id}`
+-   DELETE : `api/rekening{id}`
+-   DELETE : `api/rekening`
