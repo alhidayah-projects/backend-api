@@ -65,3 +65,8 @@ Content-Type: application/json
     "password": "87654321",
     "password_confirmation": "87654321"
 }
+
+### get all user
+GET http://127.0.0.1:8000/api/user
+Accept: application/json
+Content-Type: application/json

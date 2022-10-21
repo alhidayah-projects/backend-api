@@ -39,6 +39,7 @@ php artisan serve
 -   PUT :`/api/user` (update user)
 -   POST :`/api/forgot-password` (forgot password)
 -   POST :`/api/reset-password` (reset password)
+-   GET : `/api/user`
 
 **Endpoint Contact**
 
