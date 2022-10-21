@@ -1,10 +1,23 @@
-### Tambah rekening
+### Add Data Rekening
 POST http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer 7|a3Lvfxn0cgWmgkajynDVNt8HlmCKRO6oaBAnFnw9
 
 {
-    "nomor_rekening" : "87654321",
-    "nama_bank" : "BANK CENTRAL ASIA",
-    "atas_nama" : "Supriyadi"
+    "nomor_rekening" : "2736842",
+    "nama_bank" : "BANK MANDIRI",
+    "atas_nama" : "Dedi Supardi"
 }
+
+
+### Get All Data Rekening
+GET http://127.0.0.1:8000/api/rekening
+Accept: application/json
+Content-Type: application/json
+
+### get Data Rekening
+GET  http://127.0.0.1:8000/api/rekening/3
+Accept: application/json
+Content-Type: application/json
+

@@ -51,3 +51,5 @@ php artisan serve
 **Endpoint Rekening**
 
 -   POST : `/api/rekening`
+-   GET : `/api/rekening`
+-   GET : `/api/rekening{id}`

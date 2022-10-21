@@ -32,7 +32,7 @@ Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
+Authorization: Bearer 6|688EvdjmZEzaM5hmaNOeirljp2WgLG7x7WzyuHng
 
 ### update user
 PUT http://127.0.0.1:8000/api/user

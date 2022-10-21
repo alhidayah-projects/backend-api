@@ -51,5 +51,11 @@ Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::cla
 Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
 
 //CRUD REKENING
-Route::post('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'store']);
+//Route::post('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'store']);
+Route::get('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'getRekeningData']);
+Route::get('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'show']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'store']);
+});
 

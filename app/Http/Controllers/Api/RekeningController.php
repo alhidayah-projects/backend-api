@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rekening;
+use Illuminate\Support\Facades\Auth;
 
 class RekeningController extends Controller
 {
@@ -46,6 +47,20 @@ class RekeningController extends Controller
         return ['message' => 'Nomor Rekening Sukses Di Tambahkan'];
     }
 
+    public function getRekeningData(){
+        $rekening = Rekening::all();
+
+        // if empty data
+        if($rekening->isEmpty()){
+            return ['message' => 'Data Kosong'];
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Rekening',
+            'data' => $rekening
+        ], 200);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -54,7 +69,17 @@ class RekeningController extends Controller
      */
     public function show($id)
     {
-        //
+        $rekening = Rekening::find($id);
+
+        // if empty data
+        if($rekening == null){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Rekening',
+            'data' => $rekening
+        ], 200);
     }
 
     /**
@@ -65,7 +90,7 @@ class RekeningController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
