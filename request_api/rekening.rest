@@ -39,3 +39,9 @@ Accept: application/json
 Content-Type: application/json
 Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
 
+### Delete All Data Rekening
+DELETE http://127.0.0.1:8000/api/rekening
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
+

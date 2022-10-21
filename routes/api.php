@@ -2,17 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Collection;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 // Admin only register admin or pengurus
 Route::middleware('auth:sanctum')->group(function () {
@@ -43,22 +34,36 @@ Route::post('/forgot-password', [\App\Http\Controllers\Api\NewPasswordController
 //reset password
 Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'reset']);
 
-//contact
+//ENDPOINT CONTACT
 Route::post('/contact', [\App\Http\Controllers\Api\ContactController::class, 'store']);
 Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getContactData']);
 Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'getContactDataById']);
 Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
 Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
 
-//rekening
+//ENDPOINT REKENING
+// Create new rekening
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'store']);
 });
+
+// Get all rekening
 Route::get('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'getRekeningData']);
+
+// Get rekening by id
 Route::get('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'show']);
+
+// Update rekening by id
 Route::middleware('auth:sanctum')->group(function () {
     Route::put('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'update']);
 });
+
+// Delete rekening by id
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'destroy']);
+});
+
+// delete all rekening
+Route::middleware('auth:sanctum')->group(function () {
+    Route::delete('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'destroyAll']);
 });

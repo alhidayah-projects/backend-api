@@ -26,7 +26,7 @@ Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
+Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
 
 ### logout
 POST http://127.0.0.1:8000/api/logout

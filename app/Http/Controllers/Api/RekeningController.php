@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rekening;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class RekeningController extends Controller
 {
@@ -85,6 +86,19 @@ class RekeningController extends Controller
         }
 
         $rekening->delete();
+        return ['message' => 'Data Rekening Berhasil Di Hapus'];
+    }
+
+    // destroy all rekening
+    public function destroyAll(){
+        $rekening = Rekening::all();
+
+        // if empty data
+        if($rekening->isEmpty()){
+            return ['message' => 'Data Kosong'];
+        }
+
+        $rekening->each->delete();
         return ['message' => 'Data Rekening Berhasil Di Hapus'];
     }
 }
