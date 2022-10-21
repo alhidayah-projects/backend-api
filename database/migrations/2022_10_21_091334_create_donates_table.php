@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('telepon', 15);
             $table->string('email', 50);
             $table->text('keterangan');
+            $table->enum('status', ['check', 'reject', 'approve'])->default('check')->nullable();
+            $table->string('bukti_pembayaran', 100);
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 POST http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
+Authorization: Bearer 1|lgxzYqgIrVZP7Vbqg8lgQ6SAGaGNQPgUd1IgNPd0
 
 {
     "nomor_rekening" : "1234567890",

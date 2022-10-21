@@ -59,3 +59,17 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'destroyAll']);
 });
+
+// ENDPOINT DONATE
+// Create new donate
+Route::post('/donate', [\App\Http\Controllers\Api\DonateController::class, 'createDonate']);
+
+//approve donate admin only
+Route::middleware('auth:sanctum')->group(function () {
+    Route::put('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'updateStatusDonate']);
+});
+
+// // reject donate admin only
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::put('/donate/reject{id}', [\App\Http\Controllers\Api\DonateController::class, 'rejectDonate']);
+// });
