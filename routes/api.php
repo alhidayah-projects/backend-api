@@ -59,5 +59,6 @@ Route::get('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::clas
 Route::middleware('auth:sanctum')->group(function () {
     Route::put('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'update']);
 });
-
-
+Route::middleware('auth:sanctum')->group(function () {
+    Route::delete('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'destroy']);
+});

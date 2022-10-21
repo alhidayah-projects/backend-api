@@ -73,4 +73,18 @@ class RekeningController extends Controller
         $rekening->update($request->all());
         return ['message' => 'Data Rekening Berhasil Di Update'];
     }
+
+    //delete rekening by id
+    public function destroy($id)
+    {
+        $rekening = Rekening::find($id);
+
+        // if empty data
+        if($rekening == null){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+
+        $rekening->delete();
+        return ['message' => 'Data Rekening Berhasil Di Hapus'];
+    }
 }

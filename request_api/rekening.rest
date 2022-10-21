@@ -33,3 +33,9 @@ Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
     "atas_nama" : "Dedi Supardi"
 }
 
+### Delete Data Rekening
+DELETE http://127.0.0.1:8000/api/rekening/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
+
