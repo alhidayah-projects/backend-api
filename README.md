@@ -53,3 +53,4 @@ php artisan serve
 -   POST : `/api/rekening`
 -   GET : `/api/rekening`
 -   GET : `/api/rekening{id}`
+-   PUT : `/api/rekening{id}`
