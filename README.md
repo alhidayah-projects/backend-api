@@ -57,3 +57,8 @@ php artisan serve
 -   PUT : `/api/rekening{id}`
 -   DELETE : `api/rekening{id}`
 -   DELETE : `api/rekening`
+
+**Endpoint Donate**
+
+-   POST : `/api/donate`
+-   PUT : `/api/donate`

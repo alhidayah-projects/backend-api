@@ -36,6 +36,11 @@ class DonateController extends Controller
     // only admin can approve or reject status donate
     public function updateStatusDonate(Request $request, $id)
     {
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa approve atau reject'
+            ], 403);
+        }
         $donate = Donate::findOrFail($id);
 
         $donate->update($request->all());

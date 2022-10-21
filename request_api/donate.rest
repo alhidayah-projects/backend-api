@@ -19,17 +19,7 @@ Content-Type: application/json
 PUT http://127.0.0.1:8000/api/donate/6
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 2|fkV8ZmYa5Kytm7O0nG4o2H4iZFK4M1y4bUSWwsud
-    
-    {
-    "status": "reject"
-    }
-
-### reject donate
-PUT http://127.0.0.1:8000/api/donate/reject/6
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer 2|fkV8ZmYa5Kytm7O0nG4o2H4iZFK4M1y4bUSWwsud
+Authorization: Bearer 4|qXCdrXCLtc8VWVUPrb3y3fP47wZAVTxC93jshhzS
     
     {
     "status": "reject"
