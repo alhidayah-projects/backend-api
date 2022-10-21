@@ -11,10 +11,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 // login
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
-// get user (by token)
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 // logout
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
@@ -25,6 +21,10 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 // get all user
 Route::get('/user', [\App\Http\Controllers\Api\AuthController::class, 'getAllUser']);
+// delete user
+Route::middleware('auth:sanctum')->group(function () {
+    Route::delete('/user/{id}', [\App\Http\Controllers\Api\AuthController::class, 'destroy']);
+});
 //forgot password
 Route::post('/forgot-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'forgotPassword']);
 //reset password

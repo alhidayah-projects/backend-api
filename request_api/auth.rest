@@ -12,27 +12,21 @@ Content-Type: application/json
 POST http://127.0.0.1:8000/api/register
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 3|i9LCc1AgXUB7CpFIfgDptyo6S2tenZVhTPe64B3E
+Authorization: Bearer 1|1qMt0jtnSJ4fUIo5Yyxa3vFyPooJiEEW07NHt7gZ
     
     {
         "name": "jaka",
         "role": "pengurus",
-        "email": "mirasopie13@gmail.com",
+        "email": "mirasopie@gmail.com",
         "password": "12345678",
         "password_confirmation": "12345678"
     }
-
-### get user
-GET http://127.0.0.1:8000/api/user
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer 1|HjjBPERwBrdNGhSWmkCqhewQuaITGSCSLojsm4dK
 
 ### logout
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 6|688EvdjmZEzaM5hmaNOeirljp2WgLG7x7WzyuHng
+Authorization: Bearer 1|1qMt0jtnSJ4fUIo5Yyxa3vFyPooJiEEW07NHt7gZ
 
 ### update user
 PUT http://127.0.0.1:8000/api/user
@@ -70,3 +64,9 @@ Content-Type: application/json
 GET http://127.0.0.1:8000/api/user
 Accept: application/json
 Content-Type: application/json
+
+### delete user by id
+DELETE http://127.0.0.1:8000/api/user/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 3|WSy2k1GlSDo6lf75TPxutCTxbxSwnsLkDdLk25Pk

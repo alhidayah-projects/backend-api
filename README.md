@@ -32,14 +32,14 @@ php artisan serve
 
 **Endpoint AUTH**
 
--   POST : `/api/register` (register)
--   POST :`/api/login` (login)
--   GET :`/api/user` (get user by token)
--   POST :`/api/logout` (logout)
--   PUT :`/api/user` (update user)
--   POST :`/api/forgot-password` (forgot password)
--   POST :`/api/reset-password` (reset password)
+-   POST : `/api/register` only admin
+-   POST :`/api/login`
+-   POST :`/api/logout`
+-   PUT :`/api/user`
+-   POST :`/api/forgot-password`
+-   POST :`/api/reset-password`
 -   GET : `/api/user`
+-   DELETE : `/api/user/{id}` only admin
 
 **Endpoint Contact**
 

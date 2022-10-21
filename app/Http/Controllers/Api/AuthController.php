@@ -66,6 +66,8 @@ class AuthController extends Controller
             'token_type' => 'Bearer'
         ]);
     }
+
+    // logout
     public function logout()
     {
         Auth::user()->tokens()->delete();
@@ -112,6 +114,28 @@ class AuthController extends Controller
             'success' => true,
             'message' => 'Data User',
             'data' => $user
+        ], 200);
+    }
+
+    // delete user only admin
+    public function destroy($id)
+    {
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa menghapus user'
+            ], 403);
+        }
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data User Tidak Ditemukan',
+            ], 404);
+        }
+        $user->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Data User Berhasil Dihapus',
         ], 200);
     }
 }
