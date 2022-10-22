@@ -1,8 +1,8 @@
-<h2>Hey, It's me {{ $data->name }}</h2> 
+<h2>Pesan Dari {{ $data->name }}</h2> 
 <br>
     
-<strong>User details: </strong><br>
-<strong>Name: </strong>{{ $data->name }} <br>
-<strong>Email: </strong>{{ $data->email }} <br>
-<strong>Subject: </strong>{{ $data->subject }} <br>
+<strong>Detail Pesan Email: </strong><br>
+<strong>Nama: </strong>{{ $data->name }} <br>
+<strong>Surel: </strong>{{ $data->email }} <br>
+<strong>Subjek: </strong>{{ $data->subject }} <br>
 <strong>keterangan: </strong>{{ $data->keterangan }} <br>
