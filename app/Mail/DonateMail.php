@@ -32,7 +32,7 @@ class DonateMail extends Mailable
     public function build()
     {
      // view ('emails.donate', ['data' => $this->data]);
-        return $this->subject('Donate US - '. $this->data->subject)
+        return $this->subject('Proses Pengecekan Donasi - '. $this->data->nama)
                     ->view('emails.check');
     }
 }
