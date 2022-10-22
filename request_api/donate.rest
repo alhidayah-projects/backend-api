@@ -24,3 +24,9 @@ Authorization:Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC
     {
     "status": "reject"
     }
+
+### delete donate
+DELETE http://127.0.0.1:8000/api/donate/2
+Accept: application/json
+Content-Type: application/json
+Authorization:Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC

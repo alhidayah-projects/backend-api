@@ -64,4 +64,27 @@ class DonateController extends Controller
             'data' => $donate
         ], 200);
     }
+
+    // only admin can delete donate
+    public function deleteDonate($id)
+    {
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa delete'
+            ], 403);
+        }
+        $donate = Donate::find($id);
+
+        if ($donate == null) {
+            return response([
+                'message' => 'donate not found'
+            ], 404);
+        }
+        $donate->delete();
+        return response()->json([
+            'message' => 'Donate deleted successfully',
+            'data' => $donate
+        ], 200);
+    }
+
 }

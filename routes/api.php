@@ -68,3 +68,8 @@ Route::post('/donate', [\App\Http\Controllers\Api\DonateController::class, 'crea
 Route::middleware('auth:sanctum')->group(function () {
     Route::put('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'updateStatusDonate']);
 });
+
+// only admin delete donate
+Route::middleware('auth:sanctum')->group(function () {
+    Route::delete('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'deleteDonate']);
+});
