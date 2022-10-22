@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Donate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class DonateController extends Controller
 {
     // create donate
     public function createDonate(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
             'jenis_donasi' => 'required',
             'nominal' => 'required',
             'nama' => 'required',
@@ -22,16 +23,28 @@ class DonateController extends Controller
             'telepon' => 'required',
             'email' => 'required',
             'keterangan' => 'required',
-            'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg',
+            'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg'
         ]);
 
-        $donate = Donate::create($request->all());
+        $donate=Donate::create([
+            'donasi_id' => $request->donasi_id = 'DNS' . rand(0, 9999),
+            'jenis_donasi'=> $request->jenis_donasi,
+            'nominal' => $request->nominal,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'rekening_id' => $request->rekening_id,
+            'telepon' => $request->telepon,
+            'email' => $request->email,
+            'keterangan' => $request->keterangan,
+            'bukti_pembayaran' => $request->bukti_pembayaran
+        ]);
 
         return response()->json([
             'message' => 'Donate created successfully',
             'data' => $donate
         ], 201);
     }
+    
 
     // only admin can approve or reject status donate
     public function updateStatusDonate(Request $request, $id)

@@ -16,11 +16,11 @@ Content-Type: application/json
 }
 
 ### approve donate
-PUT http://127.0.0.1:8000/api/donate/6
+PUT http://127.0.0.1:8000/api/donate/1
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 4|qXCdrXCLtc8VWVUPrb3y3fP47wZAVTxC93jshhzS
+Authorization:Bearer 1|Jf1jvjhyhXmOqxYyaPS9uWVnBp84qu5ujmRPDEvo
     
     {
-    "status": "reject"
+    "status": "approve"
     }

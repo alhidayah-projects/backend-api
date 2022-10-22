@@ -14,6 +14,7 @@ class Donate extends Model
 {
     use HasFactory;
     public $fillable = [
+        'donasi_id',
         'jenis_donasi',
         'nominal',
         'nama',

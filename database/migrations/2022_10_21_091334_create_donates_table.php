@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('donates', function (Blueprint $table) {
             $table->id();
+            $table->string('donasi_id')->default('DN');
             $table->enum('jenis_donasi', ['zakat', 'infak', 'sedekah', 'dll']);
             $table->bigInteger('nominal');
             $table->string('nama', 50);
