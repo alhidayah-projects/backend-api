@@ -23,7 +23,8 @@ class DonateController extends Controller
             'telepon' => 'required',
             'email' => 'required',
             'keterangan' => 'required',
-            'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg'
+            // 'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg'
+            'bukti_pembayaran' => 'required'
         ]);
 
         $donate=Donate::create([

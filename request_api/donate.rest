@@ -10,7 +10,7 @@ Content-Type: application/json
     "alamat": "test",
     "rekening_id": 1,
     "telepon": "081234567890",
-    "email": "fajarsuhanaaa@gmail.com",
+    "email": "mirasopie1@gmail.com",
     "keterangan": "test",
     "bukti_pembayaran": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
 }
