@@ -19,10 +19,32 @@ class RekeningController extends Controller
             'nama_bank' => 'required',
             'atas_nama' => 'required'
         ]);
-  
-        Rekening::create($request->all());
-        return ['message' => 'Nomor Rekening Sukses Di Tambahkan'];
+
+        // only admin can create new rekening
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa membuat rekening'
+            ], 403);
+        }
+        // if nomor rekening already exist
+        if (Rekening::where('nomor_rekening', $request->nomor_rekening)->exists()) {
+            return response([
+                'message' => 'nomor rekening sudah ada'
+            ], 409);
+        }
+
+        $rekening = Rekening::create([
+            'nomor_rekening' => $request->nomor_rekening,
+            'nama_bank' => $request->nama_bank,
+            'atas_nama' => $request->atas_nama
+        ]);
+
+        return response()->json([
+            'message' => 'rekening created successfully',
+            'data' => $rekening
+        ], 201);
     }
+
 
     // Get all rekening
     public function getRekeningData(){
@@ -58,6 +80,12 @@ class RekeningController extends Controller
     // Update rekening by id
     public function update(Request $request, $id)
     {
+        // only admin can create new rekening
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa update rekening'
+            ], 403);
+        }
         $rekening = Rekening::find($id);
 
         // if empty data
@@ -78,6 +106,11 @@ class RekeningController extends Controller
     //delete rekening by id
     public function destroy($id)
     {
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa delete'
+            ], 403);
+        }
         $rekening = Rekening::find($id);
 
         // if empty data
@@ -92,7 +125,12 @@ class RekeningController extends Controller
     // destroy all rekening
     public function destroyAll(){
         $rekening = Rekening::all();
-
+        // only admin can create new rekening
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa delete all rekening'
+            ], 403);
+        }
         // if empty data
         if($rekening->isEmpty()){
             return ['message' => 'Data Kosong'];

@@ -2,10 +2,10 @@
 POST http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|xraVj4Fr6X2Hmh070PR5NQwmR4IJvtkD0nGKZKAp
+Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
 
 {
-    "nomor_rekening" : "2736842",
+    "nomor_rekening" : "273687722222",
     "nama_bank" : "BANK MANDIRI",
     "atas_nama" : "Dedi Supardi"
 }
@@ -17,7 +17,30 @@ Accept: application/json
 Content-Type: application/json
 
 ### get Data Rekening
-GET  http://127.0.0.1:8000/api/rekening/4
+GET  http://127.0.0.1:8000/api/rekening/1
 Accept: application/json
 Content-Type: application/json
 
+### Update Data Rekening
+PUT http://127.0.0.1:8000/api/rekening/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
+
+{
+    "nomor_rekening" : "555555555",
+    "nama_bank" : "BANK MANDIRI",
+    "atas_nama" : "Dedi Supardi"
+}
+
+### Delete Data Rekening 
+DELETE http://127.0.0.1:8000/api/rekening/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
+
+### Delete all Data Rekening
+DELETE http://127.0.0.1:8000/api/rekening
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
