@@ -38,12 +38,6 @@ class Donate extends Model
             Mail::to($userEmail)->send(new DonateMail($item));
         });
 
-        // static::updated(function ($item) {
-        //     // send mail to user
-        //     $userEmail = $item->email;
-        //     Mail::to($userEmail)->send(new ApproveMail($item));
-        // });
-
         // update status donate to approve
         static::updated(function ($item) {
             if ($item->status == 'approve') {
