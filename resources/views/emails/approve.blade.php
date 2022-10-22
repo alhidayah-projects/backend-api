@@ -1,5 +1,6 @@
 <h1>Terima Kasih Anda Telah Berdonasi</h1>
-    <p>Yang Terhormat {{ $data->status }},</p>
+    <p>Yang Terhormat Bapak/Ibu {{ $data->nama }},</p>
+    <strong>Kami Memberitahukan Bahwa Donasi Anda Telah Disetujui</strong>
     <p>Dengan rician donasi sebagai berikut :</p>
     <table>
         <tr>
