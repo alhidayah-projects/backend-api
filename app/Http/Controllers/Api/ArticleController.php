@@ -20,10 +20,10 @@ class ArticleController extends Controller
             'author_id' => 'required'
         ]);
 
-        // only admin can create new rekening
+        // only admin can create new article
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa membuat rekening'
+                'message' => 'anda bukan admin, tidak bisa membuat article'
             ], 403);
         }
 
@@ -78,7 +78,7 @@ class ArticleController extends Controller
          // only admin can create new article
          if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa update rekening'
+                'message' => 'anda bukan admin, tidak bisa update article'
             ], 403);
         }
         $article = Article::find($id);
@@ -124,10 +124,10 @@ class ArticleController extends Controller
     public function deleteAllArticle(){
 
         $article = Article::all();
-        // only admin can create new rekening
+        // only admin can create new article
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa delete all rekening'
+                'message' => 'anda bukan admin, tidak bisa delete all article'
             ], 403);
         }
         // if empty data
