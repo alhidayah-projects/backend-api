@@ -80,3 +80,21 @@ Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'getAl
 // Get donate by id
 Route::get('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'getDonateById']);
 
+/**ENDPOINT ARTICLES */
+
+//Create Article
+Route::middleware('auth:sanctum')->group(function() {
+/**Create Article */
+Route::post('/article', [\App\Http\Controllers\Api\ArticleController::class, 'createArticle']);
+/**Update Articles */
+Route::put('/article/{id}', [\App\Http\Controllers\Api\ArticleController::class, 'updateArticle']);
+/**Delete Article By Id */
+Route::delete('/article/{id}', [\App\Http\Controllers\Api\ArticleController::class, 'deleteArticle']);
+/**Delete all Article */
+Route::delete('/article', [\App\Http\Controllers\Api\ArticleController::class, 'deleteAllArticle']);
+});
+
+/**Get All Article */
+Route::get('/article', [\App\Http\Controllers\Api\ArticleController::class, 'getAllArticle']);
+/**Get Article By Id */
+Route::get('/article/{id}', [\App\Http\Controllers\Api\ArticleController::class, 'getArticleById']);

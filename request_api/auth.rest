@@ -12,7 +12,7 @@ Content-Type: application/json
 POST http://127.0.0.1:8000/api/register
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC
+Authorization: Bearer 3|v4HvEVKiU90FVrIlRwBNNerYI3PSqmiaqh9yllXT
     
     {
         "name": "jaka",
@@ -26,7 +26,7 @@ Authorization: Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC
 POST http://127.0.0.1:8000/api/logout
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|1qMt0jtnSJ4fUIo5Yyxa3vFyPooJiEEW07NHt7gZ
+Authorization: Bearer 2|DrPRPqjjKSRWMkON0GstiSUN2T3zV2BXr9f56lg
 
 ### update user
 PUT http://127.0.0.1:8000/api/user

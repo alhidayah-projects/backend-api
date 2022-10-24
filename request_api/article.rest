@@ -1,0 +1,47 @@
+### Create Article
+POST http://127.0.0.1:8000/api/article
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE
+
+{
+    "title" : "Tasyakur binikmat ",
+    "desc"  : "Acara marhabaan anak anak di panti asuhan Al - Hidayah Baitul Hakim",
+    "image" : "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "author_id" : 1
+}
+
+### Get All Article
+GET http://127.0.0.1:8000/api/article
+Accept: application/json
+Content-Type: application/json
+
+### Get Article By Id
+GET http://127.0.0.1:8000/api/article/3
+Accept: application/json
+Content-Type: application/json
+
+### Update Article 
+PUT http://127.0.0.1:8000/api/article/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE
+
+{
+    "title" : "Tamasya",
+    "desc"  : "Acara Outbond ke alam di panti asuhan Al - Hidayah Baitul Hakim",
+    "image" : "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "author_id" : 1
+}
+
+### Delete Article By Id
+DELETE http://127.0.0.1:8000/api/article/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE
+
+###Delete All Data Article
+DELETE http://127.0.0.1:8000/api/article
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE

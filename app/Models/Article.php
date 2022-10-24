@@ -13,7 +13,14 @@ class Article extends Model
         'title',
         'desc',
         'image',
-        'like',
         'slug',
     ];
+
+    public function sluggable(){
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }
