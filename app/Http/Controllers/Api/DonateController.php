@@ -8,6 +8,7 @@ use App\Models\Donate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use DB;
 
 class DonateController extends Controller
 {
@@ -90,13 +91,17 @@ class DonateController extends Controller
     // get all donate
     public function getAllDonate()
     {
-        // if not found donate
-        if (Donate::all()->count() == 0) {
+        $donate = DB::table('donates')
+        ->join('rekenings', 'donates.rekening_id', '=', 'rekenings.id')
+        ->select('donates.*', 'rekenings.nama_bank', 'rekenings.nomor_rekening', 'rekenings.atas_nama')
+        ->get();
+        
+        // if not found
+        if ($donate == null) {
             return response([
                 'message' => 'donate not found'
             ], 404);
         }
-        $donate = Donate::all();
         return response()->json([
             'message' => 'Donate retrieved successfully',
             'data' => $donate
