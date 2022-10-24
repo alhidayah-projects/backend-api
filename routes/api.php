@@ -73,3 +73,6 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'deleteDonate']);
 });
+
+// Get all donate
+Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'getDonateData']);

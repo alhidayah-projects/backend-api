@@ -2,7 +2,7 @@
 POST http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
+Authorization: Bearer 5|JWHBwM0Da5wh15tao0tNYSQ5YmHjpzZA1EPqprVC
 
 {
     "nomor_rekening" : "273687722222",
@@ -25,7 +25,7 @@ Content-Type: application/json
 PUT http://127.0.0.1:8000/api/rekening/1
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
+Authorization: Bearer 5|JWHBwM0Da5wh15tao0tNYSQ5YmHjpzZA1EPqprVC
 
 {
     "nomor_rekening" : "555555555",
@@ -44,3 +44,8 @@ DELETE http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
+
+### Get Data Rekening
+GET http://127.0.0.1:8000/api/rekening
+Accept: application/json
+Content-Type: application/json

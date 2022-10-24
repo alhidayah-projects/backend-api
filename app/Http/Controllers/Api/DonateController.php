@@ -87,4 +87,20 @@ class DonateController extends Controller
         ], 200);
     }
 
+    // get all donate
+    public function getAllDonate()
+    {
+        // if not found donate
+        if (Donate::all()->count() == 0) {
+            return response([
+                'message' => 'donate not found'
+            ], 404);
+        }
+        $donate = Donate::all();
+        return response()->json([
+            'message' => 'Donate retrieved successfully',
+            'data' => $donate
+        ], 200);
+    }
+
 }
