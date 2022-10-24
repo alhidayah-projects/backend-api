@@ -22,11 +22,16 @@ class NewPasswordController extends Controller
             $request->only('email')
         );
 
-        if ($status == Password::RESET_LINK_SENT) {
-            return [
-                'status' => 'sukses, silahkan cek email anda'
-            ];
+        // if email not found
+        if ($status === Password::INVALID_USER) {
+            return response()->json([
+                'message' => 'Email not found'
+            ], 404);
         }
+
+        return response()->json([
+            'message' => 'Reset password link sent on your email id.'
+        ]);
 
         throw ValidationException::withMessages([
             'email' => [trans($status)],
