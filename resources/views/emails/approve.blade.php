@@ -43,14 +43,14 @@
             <td>:</td>
             <td>{{$data->keterangan}}</td>
         </tr>
+    </table>
+
+    <table style="margin-left:auto;margin-right:auto;width:80%;text-align:center;background-color:green;">
         <tr>
-            <td></td>
-            <td></td>
-            <td>Tertanda</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td><img src="./public/assets/logo.png"></td>
+            <th>Donasi ID : {{$data->donasi_id}}</th>
+            <th>Status Donasi : Berhasil</th>
         </tr>
     </table>
+
+    <p>Semoga Allah SWT memberikan Pahala, keberkahan serta kemudahan dunia akhirat,</p>
+    <p>Admin</p>
