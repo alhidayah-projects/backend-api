@@ -76,3 +76,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 // Get all donate
 Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'getDonateData']);
+
+// Get donate by id
+Route::get('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'getDonateDataById']);
+

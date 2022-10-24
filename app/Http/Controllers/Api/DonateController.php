@@ -103,4 +103,20 @@ class DonateController extends Controller
         ], 200);
     }
 
+    // get donate by id
+    public function getDonateById($id)
+    {
+        $donate = Donate::find($id);
+
+        if ($donate == null) {
+            return response([
+                'message' => 'donate not found'
+            ], 404);
+        }
+        return response()->json([
+            'message' => 'Donate retrieved successfully',
+            'data' => $donate
+        ], 200);
+    }
+
 }
