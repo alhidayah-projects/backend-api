@@ -32,7 +32,7 @@ class RejectedMail extends Mailable
     public function build()
     {
      // view ('emails.donate', ['data' => $this->data]);
-        return $this->subject('Donasi Ditolak !!!'. $this->data->nama)
+        return $this->subject('Donasi Ditolak - '. $this->data->donasi_id)
                     ->view('emails.reject');
     }
 }

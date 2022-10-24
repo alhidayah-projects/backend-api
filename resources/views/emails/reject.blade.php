@@ -42,20 +42,13 @@
         <tr>
             <td>Alasan Ditolak,</td>
             <td>:</td>
-            <td>
-                    <br>1. Foto bukti transfer tidak sesuai dengan data donasi</br>
-                    <br>2. Transfer dilakukan ke rekening yang tidak terdaftar</br>
-                    <br>3. Transfer tidak sesuai nominal</br>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Tertanda</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td><img src="./public/assets/logo.png"></td>
+            <td>Donasi Tidak Sesuai Prosedur</td>
         </tr>
     </table>
+
+        <table style="margin-left:auto;margin-right:auto;width:80%;text-align:center;background-color:red;">
+            <tr>
+                <th>Donasi ID : {{$data->donasi_id}}</th>
+                <th>Status Donasi : Ditolak</th>
+            </tr>
+        </table>

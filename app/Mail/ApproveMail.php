@@ -32,7 +32,7 @@ class ApproveMail extends Mailable
     public function build()
     {
      // view ('emails.donate', ['data' => $this->data]);
-        return $this->subject('Donasi Disetujui - '. $this->data->nama)
+        return $this->subject('Donasi Disetujui - '. $this->data->donasi_id)
                     ->view('emails.approve');
     }
 }
