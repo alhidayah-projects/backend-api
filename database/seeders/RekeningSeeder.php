@@ -16,8 +16,13 @@ class RekeningSeeder extends Seeder
     public function run()
     {
         Rekening::create([
-            'nama_bank' => 'BRI',
-            'nomor_rekening' => '1234567890',
+            'nama_bank' => 'Mandiri',
+            'nomor_rekening' => '0028511361100',
+            'atas_nama' => 'Yayasan Al-Hidayah Baitul Hatim'
+        ]);
+        Rekening::create([
+            'nama_bank' => 'BNI',
+            'nomor_rekening' => '1300014491768',
             'atas_nama' => 'Yayasan Al-Hidayah Baitul Hatim'
         ]);
 
