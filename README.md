@@ -63,3 +63,5 @@ php artisan serve
 -   POST : `/api/donate`
 -   PUT : `/api/donate` (approve/reject)
 -   DELETE : `/api/donate`
+-   GET : `api/donate`
+-   GET : `api/donate/{id}`
