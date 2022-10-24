@@ -44,13 +44,3 @@ DELETE http://127.0.0.1:8000/api/rekening
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer 4|uvQzblA3Qs2m8K2MW6Q7zbdzsl2E7c0ktDzJrom7
-
-### Get Data Rekening
-GET http://127.0.0.1:8000/api/rekening
-Accept: application/json
-Content-Type: application/json
-
-### Get Data Rekening by ID
-GET http://127.0.0.1:8000/api/rekening/12
-Accept: application/json
-Content-Type: application/json

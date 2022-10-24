@@ -8,18 +8,18 @@ Content-Type: application/json
     "nominal": 100000,
     "nama": "test",
     "alamat": "test",
-    "rekening_id": 1,
+    "rekening_id": 12,
     "telepon": "081234567890",
-    "email": "mirasopie1@gmail.com",
+    "email": "panjiprasetyo025@gmail.com",
     "keterangan": "test",
     "bukti_pembayaran": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
 }
 
 ### approve donate
-PUT http://127.0.0.1:8000/api/donate/4
+PUT http://127.0.0.1:8000/api/donate/8
 Accept: application/json
 Content-Type: application/json
-Authorization:Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC
+Authorization:Bearer 5|JWHBwM0Da5wh15tao0tNYSQ5YmHjpzZA1EPqprVC
     
     {
     "status": "reject"
@@ -30,3 +30,13 @@ DELETE http://127.0.0.1:8000/api/donate/2
 Accept: application/json
 Content-Type: application/json
 Authorization:Bearer 3|1EVXFOsKvfwYW3sVnAOLdyxstVlOQ5XQjEgxfTHC
+
+### get all donate
+GET http://127.0.0.1:8000/api/donate
+Accept: application/json
+Content-Type: application/json
+
+### get all donate by id
+GET http://127.0.0.1:8000/api/donate/8
+Accept: application/json
+Content-Type: application/json
