@@ -96,3 +96,7 @@ Route::middleware('auth:sanctum')->group(function() {
 /**Create Gallery*/
 Route::post('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'createGallery']);
 });
+/**Get All Gallery*/
+Route::get('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'getAllGallery']);
+/**Get Gallery By Id*/
+Route::get('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::class, 'getGalleryById']);

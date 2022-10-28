@@ -43,4 +43,38 @@ class GalleryController extends Controller
             'data' => $gallery
         ], 201);
     }
+
+    // get all gallery
+    public function getAllGallery()
+    {
+        $gallery = Gallery::all();
+        // if failed
+        if (!$gallery) {
+            return response([
+                'message' => 'gagal mendapatkan data gallery'
+            ], 409);
+        }
+
+        return response()->json([
+            'message' => 'success get all gallery',
+            'data' => $gallery
+        ], 200);
+    }
+
+    // get gallery by id
+    public function getGalleryById($id)
+    {
+        $gallery = Gallery::find($id);
+        // if failed
+        if (!$gallery) {
+            return response([
+                'message' => 'gagal mendapatkan data gallery'
+            ], 409);
+        }
+
+        return response()->json([
+            'message' => 'success get gallery by id',
+            'data' => $gallery
+        ], 200);
+    }
 }

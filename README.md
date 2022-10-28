@@ -79,3 +79,5 @@ php artisan serve
 **Endpoint Gallery**
 
 -   POST: `api/gallery`
+-   GET :`api/gallery`
+-   GET : `api/gallery/{id}`

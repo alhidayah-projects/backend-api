@@ -8,3 +8,13 @@ Authorization: Bearer 1|mATProSsXgquP3aPTnGghqSKxs328RMbakqrPAGZ
     "title": "My Gallery",
     "image" : "tes.jpg"
 }
+
+### get all gallery
+GET http://127.0.0.1:8000/api/gallery
+Accept: application/json
+Content-Type: application/json
+
+### get gallery by id
+GET http://127.0.0.1:8000/api/gallery/1
+Accept: application/json
+Content-Type: application/json
