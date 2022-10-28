@@ -24,8 +24,8 @@ class DonateController extends Controller
             'telepon' => 'required',
             'email' => 'required',
             'keterangan' => 'required',
-            // 'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg'
-            'bukti_pembayaran' => 'required'
+            'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+            //'bukti_pembayaran' => 'required'
         ]);
 
         $donate=Donate::create([
@@ -38,7 +38,8 @@ class DonateController extends Controller
             'telepon' => $request->telepon,
             'email' => $request->email,
             'keterangan' => $request->keterangan,
-            'bukti_pembayaran' => $request->bukti_pembayaran
+            // bukti_pembayaran should be stored in storage/app/public
+            'bukti_pembayaran' => $request->file('bukti_pembayaran')->store('bukti', 'public')
         ]);
 
         return response()->json([
@@ -47,7 +48,23 @@ class DonateController extends Controller
         ], 201);
     }
     
+// show image bukti pembayaran in browser
+    public function showImage($filename)
+    {
+        $path = storage_path('app/public/bukti/' . $filename);
 
+        if (!file_exists($path)) {
+            abort(404);
+        }
+
+        $file = file_get_contents($path);
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+
+        $response = response($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    }
     // only admin can approve or reject status donate
     public function updateStatusDonate(Request $request, $id)
     {

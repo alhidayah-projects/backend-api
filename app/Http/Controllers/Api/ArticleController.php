@@ -16,7 +16,7 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'author_id' => 'required'
         ]);
 
@@ -31,7 +31,8 @@ class ArticleController extends Controller
             'author_id' => $request->author_id,
             'title' => $request->title,
             'desc' => $request->desc,
-            'image' => $request->image,
+            // image should be stored in storage/app/public
+            'image' => $request->file('image')->store('article', 'public'),
             'slug' => \Str::slug($request->title)
         ]);
 

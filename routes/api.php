@@ -67,6 +67,8 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'getAllDonate']);
 /**Get donate by id*/
 Route::get('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'getDonateById']);
+/**show image bukti_pembayaran*/
+Route::get('/donate/bukti_pembayaran/{filename}', [\App\Http\Controllers\Api\DonateController::class, 'showImage']);
 /**********************************   Enpoint Donates Route Ends Here   *******************************************/
 
 
