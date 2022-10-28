@@ -61,7 +61,10 @@ php artisan serve
 **Endpoint Donate**
 
 -   POST : `/api/donate`
--   PUT : `/api/donate` (approve/reject)
+-   PUT : `/api/donate/{id}` (approve/reject)
+-   DELETE : `/api/donate/{id}`
+-   GET : `api/donate`
+-   GET : `api/donate/{id}`
 
 **Endpoint**
 
