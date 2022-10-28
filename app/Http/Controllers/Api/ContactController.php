@@ -71,16 +71,22 @@ class ContactController extends Controller
     // delete contact data by id
     public function deleteContactDataById($id)
     {
-        $contact = Contact::find($id);
-        $contact->delete();
-
-        return response()->json('Data berhasil dihapus');
+        // if empty data
+        if(Contact::find($id) == null){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+        Contact::destroy($id);
+        return ['message' => 'Data berhasil dihapus'];
     }
     
     // delete all contact data
     public function deleteAllContactData()
     {
-        $contact = Contact::truncate();
-        return response()->json('Semua data berhasil dihapus');
+      // if empty data
+        if(Contact::all()->isEmpty()){
+            return ['message' => 'Data tidak ditemukan'];
+        }
+        Contact::truncate();
+        return ['message' => 'Data berhasil dihapus'];
     }
 }
