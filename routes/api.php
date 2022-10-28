@@ -95,6 +95,8 @@ Route::get('/article/{id}', [\App\Http\Controllers\Api\ArticleController::class,
 Route::middleware('auth:sanctum')->group(function() {
 /**Create Gallery*/
 Route::post('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'createGallery']);
+/**Delete Gallery By Id */
+Route::delete('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::class, 'deleteGalleryById']);
 });
 /**Get All Gallery*/
 Route::get('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'getAllGallery']);

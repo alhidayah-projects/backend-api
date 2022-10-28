@@ -18,3 +18,9 @@ Content-Type: application/json
 GET http://127.0.0.1:8000/api/gallery/1
 Accept: application/json
 Content-Type: application/json
+
+### delete gallery by id
+DELETE http://127.0.0.1:8000/api/gallery/2
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|mATProSsXgquP3aPTnGghqSKxs328RMbakqrPAGZ

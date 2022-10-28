@@ -81,3 +81,4 @@ php artisan serve
 -   POST: `api/gallery`
 -   GET :`api/gallery`
 -   GET : `api/gallery/{id}`
+-   DELETE : `api/gallery/{id}`

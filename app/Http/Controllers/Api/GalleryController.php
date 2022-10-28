@@ -77,4 +77,33 @@ class GalleryController extends Controller
             'data' => $gallery
         ], 200);
     }
+
+    // delete gallery by id
+    public function deleteGalleryById($id)
+    {
+        $gallery = Gallery::find($id);
+        // if failed
+        if (!$gallery) {
+            return response([
+                'message' => 'id gallery tidak ditemukan'
+            ], 409);
+        }
+
+        // only admin can delete gallery
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'anda bukan admin, tidak bisa menghapus gallery'
+            ], 403);
+        }
+
+        // delete image
+        Storage::disk('public')->delete($gallery->image);
+        // delete gallery
+        $gallery->delete();
+
+        return response()->json([
+            'message' => 'success delete gallery',
+            'data' => $gallery
+        ], 200);
+    }
 }
