@@ -75,3 +75,7 @@ php artisan serve
 -   PUT:`/api/article{id}`
 -   DELETE:`/api/article{id}`
 -   DELETE:`/api/article`
+
+**Endpoint Gallery**
+
+-   POST: `api/gallery`

@@ -1,0 +1,10 @@
+## create gallery
+POST http://127.0.0.1:8000/api/gallery
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|mATProSsXgquP3aPTnGghqSKxs328RMbakqrPAGZ
+
+{
+    "title": "My Gallery",
+    "image" : "tes.jpg"
+}

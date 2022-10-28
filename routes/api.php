@@ -89,3 +89,10 @@ Route::get('/article', [\App\Http\Controllers\Api\ArticleController::class, 'get
 /**Get Article By Id*/
 Route::get('/article/{id}', [\App\Http\Controllers\Api\ArticleController::class, 'getArticleById']);
 /**********************************   Enpoint Articles Route Ends Here   *******************************************/
+
+
+/**********************************   Enpoint Gallery Route Starts Here   *******************************************/
+Route::middleware('auth:sanctum')->group(function() {
+/**Create Gallery*/
+Route::post('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'createGallery']);
+});
