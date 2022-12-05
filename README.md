@@ -82,3 +82,7 @@ php artisan serve
 -   GET :`api/gallery`
 -   GET : `api/gallery/{id}`
 -   DELETE : `api/gallery/{id}`
+
+**Endpoint Gallery**
+
+-   POST: `api/anak`

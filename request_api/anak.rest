@@ -1,0 +1,16 @@
+### create anak
+POST http://127.0.0.1:8000/api/anak
+ccept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|6ysesNguakLw8FEpMQ0iX7Bzy1pHL4CjU1e8L4yA
+
+{
+    "nama_anak": "Anak 1",
+    "nik": "1234567891",
+    "tempat_lahir": "Jakarta",
+    "tanggal_lahir": "2020-01-01",
+    "jenis_kelamin": "L",
+    "nama_ibu": "Ibu 1",
+    "nama_ayah": "Ayah 1",
+    "status": "yatim"
+}

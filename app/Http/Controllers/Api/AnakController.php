@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Models\Anak;
 
 class AnakController extends Controller
 {
@@ -19,8 +22,9 @@ class AnakController extends Controller
             'nama_ibu' => 'required|string|max:255',
             'nama_ayah' => 'required|string|max:255',
             'status' => 'required'
-        ]);
+        ]); 
 
+        // check if validator fails
         if ($validator->fails()) {
             return response()->json($validator->errors());
         }
@@ -38,7 +42,7 @@ class AnakController extends Controller
 
         return response()->json([
             'data' => $anak,
-            'message' => 'data berhasil ditambahkan'
+            'message' => 'data anak berhasil ditambahkan'
         ]);
 
     }
