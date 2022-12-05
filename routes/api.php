@@ -122,3 +122,10 @@ Route::delete('/anak', [\App\Http\Controllers\Api\AnakController::class, 'delete
 Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'getAllAnak']);
 /**Get Anak By Id*/
 Route::get('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'getAnakById']);
+/**********************************   Enpoint Anak Route Ends Here   *******************************************/
+
+/**********************************   Enpoint Yayasan Route Starts Here   *******************************************/
+Route::middleware('auth:sanctum')->group(function() {
+/**Create Yayasan*/
+Route::post('/yayasan', [\App\Http\Controllers\Api\YayasanController::class, 'create']);
+});

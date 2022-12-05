@@ -1,0 +1,15 @@
+### create yayasan
+POST http://localhost:8000/api/yayasan
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|HMmCio34WkqaAWkJEKvfX6Gm6DAExj4buSQhfawo
+
+{
+    "nama_yayasan" : "Alhidayah Baitul Hatim",
+    "akte_notaris" : "akte_notaris",
+    "kemenkumham" : "kemenkumham",
+    "npwp" : "npwp",
+    "sk_kota":"sk_kota",
+    "sk_provinsi" : "sk_provinsi",
+    "profil_yayasan" : "Alhidayah Baitul Hatim adalah lembaga perlindungan anak"
+}

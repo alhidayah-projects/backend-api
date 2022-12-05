@@ -83,10 +83,14 @@ php artisan serve
 -   GET : `api/gallery/{id}`
 -   DELETE : `api/gallery/{id}`
 
-**Endpoint Gallery**
+**Endpoint Anak**
 
 -   POST: `api/anak`
 -   GET: `api/anak`
 -   GET: `api/anak/{id}`
 -   DELETE: `api/anak{id}`
 -   DELETE:`api/anak`
+
+**Endpoint Yayasan**
+
+-   POST :`api/yayasan`
