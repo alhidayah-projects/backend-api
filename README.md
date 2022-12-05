@@ -88,3 +88,5 @@ php artisan serve
 -   POST: `api/anak`
 -   GET: `api/anak`
 -   GET: `api/anak/{id}`
+-   DELETE: `api/anak{id}`
+-   DELETE:`api/anak`

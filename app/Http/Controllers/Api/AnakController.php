@@ -84,4 +84,48 @@ class AnakController extends Controller
 
     }
 
+    // delete data anak by id
+    public function deleteAnakById($id)
+    {
+        $anak = Anak::find($id);
+
+        // if data anak not found
+        if (!$anak) {
+            return response()->json([
+                'message' => 'data anak tidak ditemukan'
+            ]);
+        }
+
+        $anak->delete();
+
+        return response()->json([
+            'message' => 'data anak bernama ' . $anak->nama_anak . ' berhasil dihapus'
+        ]);
+    }
+
+    // delete all data anak
+    public function deleteAllAnak()
+    {
+        // user admin and pengurus only
+        if (Auth::user()->role != 'admin' && Auth::user()->role != 'pengurus') {
+            return response()->json([
+                'message' => 'anda bukan admin atau pengurus, tidak bisa menghapus semua data anak'
+            ], 403);
+        }
+
+        $anak = Anak::all();
+
+        // if data anak not found
+        if (count($anak) == 0) {
+            return response()->json([
+                'message' => 'data anak tidak ditemukan'
+            ]);
+        }
+
+        Anak::truncate();
+
+        return response()->json([
+            'message' => 'semua data anak berhasil dihapus'
+        ]);
+    }
 }
