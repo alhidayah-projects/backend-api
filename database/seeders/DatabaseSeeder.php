@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
               RekeningSeeder::class,
                 UserSeeder::class,
                 AnakSeeder::class,
+                GallerySeeder::class,
             ]);
 
     }
