@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('yayasan', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_yayasan')->nullable();
+            $table->string('akte_notaris')->nullable();
+            $table->string('kemenkumham')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('sk_kota')->nullable();
+            $table->string('sk_provinsi')->nullable();
+            $table->string('profil_yayasan')->nullable();
             $table->timestamps();
         });
     }
