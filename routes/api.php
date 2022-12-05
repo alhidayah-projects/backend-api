@@ -102,3 +102,17 @@ Route::delete('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::cla
 Route::get('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'getAllGallery']);
 /**Get Gallery By Id*/
 Route::get('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::class, 'getGalleryById']);
+
+/**********************************   Enpoint Gallery Route Ends Here   *******************************************/
+
+/**********************************   Enpoint Anak Route Starts Here   *******************************************/
+Route::middleware('auth:sanctum')->group(function() {
+/**Create Anak*/
+Route::post('/anak', [\App\Http\Controllers\Api\AnakController::class, 'createAnak']);
+/**Update Anak*/
+Route::put('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'updateAnak']);
+/**Delete Anak By Id*/
+Route::delete('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'deleteAnakById']);
+/**Delete All Anak*/
+Route::delete('/anak', [\App\Http\Controllers\Api\AnakController::class, 'deleteAllAnak']);
+});
