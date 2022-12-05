@@ -117,3 +117,8 @@ Route::delete('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'd
 Route::delete('/anak', [\App\Http\Controllers\Api\AnakController::class, 'deleteAllAnak']);
 
 });
+
+/**Get All Anak*/
+Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'getAllAnak']);
+/**Get Anak By Id*/
+Route::get('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'getAnakById']);

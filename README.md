@@ -86,3 +86,5 @@ php artisan serve
 **Endpoint Gallery**
 
 -   POST: `api/anak`
+-   GET: `api/anak`
+-   GET: `api/anak/{id}`

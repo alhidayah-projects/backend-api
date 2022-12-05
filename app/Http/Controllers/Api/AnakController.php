@@ -47,4 +47,41 @@ class AnakController extends Controller
 
     }
 
+    // get all data anak
+    public function getAllAnak()
+    {
+        $anak = Anak::all();
+
+        // if data anak not found
+        if (count($anak) == 0) {
+            return response()->json([
+                'message' => 'data anak tidak ditemukan'
+            ]);
+        }
+
+        return response()->json([
+            'data' => $anak,
+            'message' => 'data anak berhasil ditemukan'
+        ]);
+    }
+
+    // get data anak by id
+    public function getAnakById($id)
+    {
+        $anak = Anak::find($id);
+
+        // if data anak not found
+        if (!$anak) {
+            return response()->json([
+                'message' => 'data anak tidak ditemukan'
+            ]);
+        }
+
+        return response()->json([
+            'data' => $anak,
+            'message' => 'data anak berhasil ditemukan'
+        ]);
+
+    }
+
 }

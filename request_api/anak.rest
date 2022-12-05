@@ -14,3 +14,9 @@ Authorization: Bearer 1|6ysesNguakLw8FEpMQ0iX7Bzy1pHL4CjU1e8L4yA
     "nama_ayah": "Ayah 1",
     "status": "yatim"
 }
+
+### get all anak
+GET http://localhost:8000/api/anak
+
+### get anak by id
+GET http://localhost:8000/api/anak/1
