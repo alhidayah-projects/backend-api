@@ -23,7 +23,8 @@ class ArticleController extends Controller
         // only admin can create new article
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa membuat article'
+                'message' => 'anda bukan admin, tidak bisa membuat article',
+                'data' => $article
             ], 403);
         }
 
@@ -44,17 +45,25 @@ class ArticleController extends Controller
     }
 
     public function getAllArticle(){
-        // if not found Article
-        if (Article::all()->count() == 0) {
+      
+        // join table user and article show name author
+        $article = Article::join('users', 'users.id', '=', 'articles.author_id')
+        ->select('articles.*', 'users.name as author')
+        ->get();
+
+        // if not found data
+        if($article->isEmpty()){
             return response([
-                'message' => 'Article not found'
-            ], 404);
+                'message' => 'article not found',
+                'data' => $article
+            ], 200);
         }
-        $article = Article::all();
+
         return response()->json([
-            'message' => 'Article retrieved successfully',
+            'message' => 'article retrieved successfully',
             'data' => $article
-        ], 200);
+        ] , 200);
+
     }
 
     /**Get Article By Id */
@@ -64,8 +73,9 @@ class ArticleController extends Controller
 
         if ($article == null) {
             return response([
-                'message' => 'article not found'
-            ], 404);
+                'message' => 'article not found',
+                'data' => $article
+            ], 200);
         }
         return response()->json([
             'message' => 'article retrieved successfully',
@@ -79,14 +89,18 @@ class ArticleController extends Controller
          // only admin can create new article
          if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa update article'
+                'message' => 'anda bukan admin, tidak bisa update article',
+                'data' => $article
             ], 403);
         }
         $article = Article::find($id);
 
         // if empty data
         if($article == null){
-            return ['message' => 'Data Not Found'];
+            return response([
+                'message' => 'article not found',
+                'data' => $article
+            ], 200);
         }
 
         $this->validate($request, [
@@ -97,7 +111,10 @@ class ArticleController extends Controller
         ]);
 
         $article->update($request->all());
-        return ['message' => 'Data Update Successfully'];
+        return response()->json([
+            'message' => 'article updated successfully',
+            'data' => $article
+        ], 200);
     }
 
     
