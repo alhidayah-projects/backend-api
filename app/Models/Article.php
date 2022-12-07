@@ -13,7 +13,7 @@ class Article extends Model
         'title',
         'desc',
         'image',
-        'slug',
+        //'slug',
     ];
 
     public function sluggable(){
