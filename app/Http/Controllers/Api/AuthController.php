@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    //register
+    /** register */
     public function register(Request $request)
     {
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa register admin atau pengurus'
+                'message' => 'you are not admin, you can not create user'
             ], 403);
         }
         $validator = Validator::make($request->all(), [
@@ -24,6 +24,13 @@ class AuthController extends Controller
             'role' => 'required',
             'email' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:8'
+        ], [
+            'name.required' => 'Nama tidak boleh kosong',
+            'role.required' => 'Role tidak boleh kosong',
+            'email.required' => 'Email tidak boleh kosong',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.required' => 'Password tidak boleh kosong',
+            'password.min' => 'Password minimal 8 karakter'
         ]);
         
         if ($validator->fails()) {
@@ -35,7 +42,7 @@ class AuthController extends Controller
             'role' => $request->role,
             'email' => $request->email,
             'password' => Hash::make($request->password)
-        ]);
+        ], 201);
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -43,7 +50,7 @@ class AuthController extends Controller
             'data' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer'
-        ]);
+        ], 201);
     
     }
 
@@ -65,7 +72,7 @@ class AuthController extends Controller
             'data' => $user,
             'access_token' => $token,
             'token_type' => 'Bearer'
-        ]);
+        ], 200);
     }
 
     // logout
@@ -74,7 +81,7 @@ class AuthController extends Controller
         Auth::user()->tokens()->delete();
         return response()->json([
             'message' => 'logout success'
-        ]);
+        ], 200);
     }
 
     // update user profile
@@ -102,18 +109,21 @@ class AuthController extends Controller
             $user->update();
         }
         return response()->json([
-            'message' => 'update success'
-        ]);
+            'message' => 'update success',
+            'data' => $user
+        ], 200);
 
     }
 
     // get all user
     public function getAllUser()
     {
+        
         $user = User::all();
+        $user = User::paginate(10);
         return response()->json([
             'success' => true,
-            'message' => 'Data User',
+            'message' => 'All Data User',
             'data' => $user
         ], 200);
     }
@@ -123,15 +133,15 @@ class AuthController extends Controller
     {
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa menghapus user'
+                'message' => 'you are not admin, you can not delete user'
             ], 403);
         }
         $user = User::find($id);
         if (!$user) {
             return response()->json([
                 'success' => false,
-                'message' => 'Data User Tidak Ditemukan',
-            ], 404);
+                'message' => 'User not found',
+            ],200);
         }
         $user->delete();
         return response()->json([
