@@ -25,8 +25,10 @@ Content-Type: application/json
 DELETE http://127.0.0.1:8000/api/contact/1
 Accept: application/json
 Content-Type: application/json
+Authorization : Bearer 7|HMZRmtQ778sBKRHLcmtOpNKvL7sBmL0rBcYggLDI
 
 ### delete all contact
 DELETE http://127.0.0.1:8000/api/contact
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer 7|HMZRmtQ778sBKRHLcmtOpNKvL7sBmL0rBcYggLDI

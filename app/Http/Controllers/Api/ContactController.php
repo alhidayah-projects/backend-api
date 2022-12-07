@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -33,17 +35,26 @@ class ContactController extends Controller
         ]);
   
         Contact::create($request->all());
-        return ['message' => 'Terima kasih telah menghubungi kami'];
+        return response ()->json([
+            'success' => true,
+            'message' => 'Thank you for contacting us!',
+            'data' => $request->all()
+        ], 200);
     }
 
     // get contact all data
     public function getContactData()
     {
         $contact = Contact::all();
+        $contact = Contact::paginate(5);
 
         // if empty data
         if($contact->isEmpty()){
-            return ['message' => 'Data tidak ditemukan'];
+            return response()->json([
+                'success' => false,
+                'message' => 'Data not found',
+                'data' => $contact
+            ], 200);
         }
         return response()->json([
             'success' => true,
@@ -59,7 +70,11 @@ class ContactController extends Controller
 
         // if empty data
         if($contact == null){
-            return ['message' => 'Data tidak ditemukan'];
+            return response ()->json([
+                'success' => false,
+                'message' => 'Data not found',
+                'data' => $contact
+            ], 200);
         }
         return response()->json([
             'success' => true,
@@ -71,22 +86,56 @@ class ContactController extends Controller
     // delete contact data by id
     public function deleteContactDataById($id)
     {
-        // if empty data
-        if(Contact::find($id) == null){
-            return ['message' => 'Data tidak ditemukan'];
+        // if not admin can not delete
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not delete data'
+            ], 403);
         }
-        Contact::destroy($id);
-        return ['message' => 'Data berhasil dihapus'];
+
+        $contact = Contact::find($id);
+
+        // if empty data
+        if($contact == null){
+            return response ()->json([
+                'success' => false,
+                'message' => 'Data not found',
+                'data' => $contact
+            ], 200);
+        }
+        $contact->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Contact Successfully Deleted',
+            'data' => $contact
+        ], 200);
     }
     
     // delete all contact data
     public function deleteAllContactData()
     {
-      // if empty data
-        if(Contact::all()->isEmpty()){
-            return ['message' => 'Data tidak ditemukan'];
+        $contact = Contact::all();
+        // only admin can create new contact
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not delete data'
+            ], 403);
         }
-        Contact::truncate();
-        return ['message' => 'Data berhasil dihapus'];
+        // if empty data
+        if($contact->isEmpty()){
+            return response ()->json([
+                'success' => false,
+                'message' => 'Data not found',
+                'data' => $contact
+            ], 200);
+        }
+
+        $contact->each->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Contact Successfully Deleted',
+            'data' => $contact
+        ], 200);
     }
 }
+
