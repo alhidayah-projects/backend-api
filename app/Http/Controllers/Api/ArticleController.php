@@ -23,7 +23,7 @@ class ArticleController extends Controller
         // only admin can create new article
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa membuat article',
+                'message' => 'you are not admin, you can not create new article',
                 'data' => $article
             ], 403);
         }
@@ -38,7 +38,7 @@ class ArticleController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Added article successfully',
+            'message' => 'article created successfully',
             'data' => $article
         ], 201);
 
@@ -46,7 +46,7 @@ class ArticleController extends Controller
 
     public function getAllArticle(){
       
-        // join table user and article show name author
+        // join table
         $article = Article::join('users', 'users.id', '=', 'articles.author_id')
         ->select('articles.*', 'users.name as author')
         ->get();
@@ -89,7 +89,7 @@ class ArticleController extends Controller
          // only admin can create new article
          if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa update article',
+                'message' => 'you are not admin, you can not update article',
                 'data' => $article
             ], 403);
         }
@@ -123,7 +123,7 @@ class ArticleController extends Controller
     {
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa delete'
+                'message' => 'you are not admin, you can not delete article'
             ], 403);
         }
 
@@ -131,11 +131,17 @@ class ArticleController extends Controller
 
         // if empty data
         if($article == null){
-            return ['message' => 'Data Not Founds'];
+            return response ([
+                'message' => 'article not found',
+                'data' => $article
+            ], 200);
         }
 
         $article->delete();
-        return ['message' => 'Delet data Article successfully'];
+        return response ([
+            'message' => 'article deleted successfully',
+            'data' => $article
+        ], 200);
     }
 
     /**Delete All Article */
@@ -144,16 +150,23 @@ class ArticleController extends Controller
         $article = Article::all();
         // only admin can create new article
         if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'anda bukan admin, tidak bisa delete all article'
+            return response ([
+                'message' => 'you are not admin, you can not delete all article',
+                'data' => $article
             ], 403);
         }
         // if empty data
         if($article->isEmpty()){
-            return ['message' => 'Data Not Found'];
+            return response ([
+                'message' => 'article not found',
+                'data' => $article
+            ], 200);
         }
 
         $article->each->delete();
-        return ['message' => 'Delete all data Article Successfully'];
+        return response ([
+            'message' => 'all article deleted successfully',
+            'data' => $article
+        ], 200);
     }
 }
