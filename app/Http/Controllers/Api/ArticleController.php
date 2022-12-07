@@ -34,7 +34,7 @@ class ArticleController extends Controller
             'desc' => $request->desc,
             // image should be stored in storage/app/public
             'image' => $request->file('image')->store('article', 'public'),
-            'slug' => \Str::slug($request->title)
+            //'slug' => \Str::slug($request->title)
         ]);
 
         return response()->json([
@@ -67,20 +67,26 @@ class ArticleController extends Controller
     }
 
     /**Get Article By Id */
-    public function getArticleById($id){
+    public function getArticleById($id)
+    {
+        $article = Article::join('users', 'users.id', '=', 'articles.author_id')
+        ->select('articles.*', 'users.name as author')
+        ->where('articles.id', $id)
+        ->first();
 
-        $article = Article::find($id);
-
-        if ($article == null) {
+        // if empty data
+        if($article == null){
             return response([
                 'message' => 'article not found',
                 'data' => $article
             ], 200);
         }
+
         return response()->json([
             'message' => 'article retrieved successfully',
             'data' => $article
         ], 200);
+        
     }
 
     /**Update Article */
