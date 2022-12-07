@@ -50,6 +50,8 @@ class ArticleController extends Controller
         $article = Article::join('users', 'users.id', '=', 'articles.author_id')
         ->select('articles.*', 'users.name as author')
         ->get();
+        // pagination
+        $article = Article::paginate(5);
 
         // if not found data
         if($article->isEmpty()){
