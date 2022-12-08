@@ -130,4 +130,49 @@ class AnakController extends Controller
             'data' => $anak
         ], 200);
     }
+
+    /**update data anak by id */
+    public function updateAnak(Request $request, $id)
+    {
+        $anak = Anak::find($id);
+
+        // if data anak not found
+        if ($anak==null) {
+            return response()->json([
+                'message' => 'data anak not found'
+            ], 200);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'nama_anak' => 'required|string|max:255',
+            'nik' => 'required',
+            'tempat_lahir' => 'required|string|max:255',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required',
+            'nama_ibu' => 'required|string|max:255',
+            'nama_ayah' => 'required|string|max:255',
+            'status' => 'required'
+        ]);
+
+        // check if validator fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
+
+        $anak->update([
+            'nama_anak' => $request->nama_anak,
+            'nik' => $request->nik,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'nama_ibu' => $request->nama_ibu,
+            'nama_ayah' => $request->nama_ayah,
+            'status' => $request->status
+        ]);
+
+        return response()->json([
+            'message' => 'data anak has been updated successfully',
+            'data' => $anak
+        ], 200);
+    }
 }
