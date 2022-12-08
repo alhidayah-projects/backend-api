@@ -65,7 +65,6 @@ php artisan serve
 -   DELETE : `/api/donate/{id}`
 -   GET : `api/donate`
 -   GET : `api/donate/{id}`
--   GET : `/donate/bukti_pembayaran/{filename}`
 
 **Endpoint**
 
