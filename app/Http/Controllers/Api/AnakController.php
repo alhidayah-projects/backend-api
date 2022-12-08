@@ -10,7 +10,7 @@ use App\Models\Anak;
 
 class AnakController extends Controller
 {
-    // create data anak
+    /**create data anak */
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -42,30 +42,31 @@ class AnakController extends Controller
 
         return response()->json([
             'data' => $anak,
-            'message' => 'data anak berhasil ditambahkan'
-        ]);
+            'message' => 'add data anak success'
+        ], 201);
 
     }
 
-    // get all data anak
+    /**get all data anak */
     public function getAllAnak()
     {
         $anak = Anak::all();
-
+        $anak = Anak::paginate(10);
         // if data anak not found
         if (count($anak) == 0) {
             return response()->json([
-                'message' => 'data anak tidak ditemukan'
-            ]);
+                'message' => 'data anak not found',
+                'data' => $anak
+            ],200);
         }
 
         return response()->json([
-            'data' => $anak,
-            'message' => 'data anak berhasil ditemukan'
-        ]);
+            'message' => 'data anak has been found successfully',
+            'data' => $anak
+        ], 200);
     }
 
-    // get data anak by id
+    /**get data anak by id */
     public function getAnakById($id)
     {
         $anak = Anak::find($id);
@@ -73,18 +74,18 @@ class AnakController extends Controller
         // if data anak not found
         if (!$anak) {
             return response()->json([
-                'message' => 'data anak tidak ditemukan'
-            ]);
+                'message' => 'data anak not found'
+            ], 200);
         }
 
         return response()->json([
-            'data' => $anak,
-            'message' => 'data anak berhasil ditemukan'
-        ]);
+            'message' => 'data anak has been found successfully',
+            'data' => $anak
+        ], 200);
 
     }
 
-    // delete data anak by id
+    /**delete data anak by id */
     public function deleteAnakById($id)
     {
         $anak = Anak::find($id);
@@ -92,24 +93,24 @@ class AnakController extends Controller
         // if data anak not found
         if (!$anak) {
             return response()->json([
-                'message' => 'data anak tidak ditemukan'
-            ]);
+                'message' => 'data anak not found'
+            ], 200);
         }
 
         $anak->delete();
 
         return response()->json([
-            'message' => 'data anak bernama ' . $anak->nama_anak . ' berhasil dihapus'
-        ]);
+            'message' => 'named data anak ' . $anak->nama_anak . ' deleted successfully',
+        ], 200);
     }
 
-    // delete all data anak
+    /**delete all data anak */
     public function deleteAllAnak()
     {
         // user admin and pengurus only
         if (Auth::user()->role != 'admin' && Auth::user()->role != 'pengurus') {
             return response()->json([
-                'message' => 'anda bukan admin atau pengurus, tidak bisa menghapus semua data anak'
+                'message' => 'you are not authorized to delete all data anak'
             ], 403);
         }
 
@@ -118,14 +119,15 @@ class AnakController extends Controller
         // if data anak not found
         if (count($anak) == 0) {
             return response()->json([
-                'message' => 'data anak tidak ditemukan'
-            ]);
+                'message' => 'data anak not found'
+            ], 200);
         }
 
         Anak::truncate();
 
         return response()->json([
-            'message' => 'semua data anak berhasil dihapus'
-        ]);
+            'message' => 'success delete all data anak',
+            'data' => $anak
+        ], 200);
     }
 }
