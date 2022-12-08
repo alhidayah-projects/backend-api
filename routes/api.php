@@ -103,6 +103,8 @@ Route::post('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'cr
 Route::delete('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::class, 'deleteGalleryById']);
 /**Delete All Gallery*/
 Route::delete('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'deleteAllGallery']);
+/**Update Gallery*/
+Route::put('/gallery/{id}', [\App\Http\Controllers\Api\GalleryController::class, 'updateGallery']);
 });
 /**Get All Gallery*/
 Route::get('/gallery', [\App\Http\Controllers\Api\GalleryController::class, 'getAllGallery']);

@@ -134,4 +134,36 @@ class GalleryController extends Controller
             'data' => $gallery
         ], 200);
     }
+
+    /** update gallery */
+    public function updateGallery(Request $request, $id)
+    {
+        // only admin can create new gallery
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not update article',
+                'data' => $gallery
+            ], 403);
+        }
+        $gallery = Gallery::find($id);
+
+        // if empty data
+        if($gallery == null){
+            return response([
+                'message' => 'gallery not found',
+                'data' => $gallery
+            ], 200);
+        }
+
+        $this->validate($request, [
+            'title' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $gallery->update($request->all());
+        return response()->json([
+            'message' => 'gallery updated successfully',
+            'data' => $gallery
+        ], 200);
+    }
 }
