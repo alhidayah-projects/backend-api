@@ -22,7 +22,7 @@ class GalleryController extends Controller
         // only admin can create new gallery
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa membuat gallery'
+                'message' => 'you are not admin, you can not create new gallery'
             ], 403);
         }
 
@@ -34,7 +34,7 @@ class GalleryController extends Controller
         // if failed
         if (!$gallery) {
             return response([
-                'message' => 'gagal membuat gallery'
+                'message' => 'failed create gallery'
             ], 409);
         }
 
@@ -48,11 +48,12 @@ class GalleryController extends Controller
     public function getAllGallery()
     {
         $gallery = Gallery::all();
+        $gallery = Gallery::paginate(10);
         // if failed
         if (!$gallery) {
             return response([
-                'message' => 'gagal mendapatkan data gallery'
-            ], 409);
+                'message' => 'failed get all gallery'
+            ], 200);
         }
 
         return response()->json([
@@ -68,8 +69,8 @@ class GalleryController extends Controller
         // if failed
         if (!$gallery) {
             return response([
-                'message' => 'gagal mendapatkan data gallery'
-            ], 409);
+                'message' => 'failed get gallery by id'
+            ], 200);
         }
 
         return response()->json([
@@ -85,14 +86,14 @@ class GalleryController extends Controller
         // if failed
         if (!$gallery) {
             return response([
-                'message' => 'id gallery tidak ditemukan'
-            ], 409);
+                'message' => 'gallery not found'
+            ], 200);
         }
 
         // only admin can delete gallery
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa menghapus gallery'
+                'message' => 'you are not admin, you can not delete gallery'
             ], 403);
         }
 
@@ -103,6 +104,33 @@ class GalleryController extends Controller
 
         return response()->json([
             'message' => 'success delete gallery',
+            'data' => $gallery
+        ], 200);
+    }
+
+    /** delete all gallery */
+    public function deleteAllGallery()
+    {
+        // only admin can create new gallery
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not delete all gallery'
+            ], 403);
+        }
+
+        $gallery = Gallery::all();
+
+        // if data Gallery not found
+        if (count($gallery) == 0) {
+            return response()->json([
+                'message' => 'data Gallery not found'
+            ], 200);
+        }
+
+        Gallery::truncate();
+
+        return response()->json([
+            'message' => 'success delete all data Gallery',
             'data' => $gallery
         ], 200);
     }
