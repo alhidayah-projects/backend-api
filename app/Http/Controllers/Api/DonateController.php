@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use DB;
 
+use Illuminate\Support\Facades\Storage;
 class DonateController extends Controller
 {
     /**create donate */
@@ -85,6 +86,30 @@ class DonateController extends Controller
         $donate->delete();
         return response()->json([
             'message' => 'Donate deleted successfully',
+            'data' => $donate
+        ], 200);
+    }
+
+    /**delete all donate*/
+    public function deleteAllDonate()
+    {
+        $donate = Donate::all();
+        // only admin can create new donate
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'You are not admin, you can not delete all donate'
+            ], 403);
+        }
+        // if empty data
+        if($donate->isEmpty()){
+            return response ([
+                'message' => 'Data donate not found'
+            ], 200);
+        }
+
+        $donate->each->delete();
+        return response ([
+            'message' => 'All donate deleted successfully',
             'data' => $donate
         ], 200);
     }
