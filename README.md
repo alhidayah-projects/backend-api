@@ -90,6 +90,7 @@ php artisan serve
 -   GET: `api/anak/{id}`
 -   DELETE: `api/anak{id}`
 -   DELETE:`api/anak`
+-   PUT: `api/anak{id}`
 
 **Endpoint Yayasan**
 
