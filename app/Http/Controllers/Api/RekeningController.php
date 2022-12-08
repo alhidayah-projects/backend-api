@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class RekeningController extends Controller
 {
 
-    // Create new rekening
+    /**Create new rekening */
     public function store(Request $request)
     {
         $request->validate([
@@ -23,13 +23,13 @@ class RekeningController extends Controller
         // only admin can create new rekening
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa membuat rekening'
+                'message' => 'you are not admin, cannot create rekening'
             ], 403);
         }
         // if nomor rekening already exist
         if (Rekening::where('nomor_rekening', $request->nomor_rekening)->exists()) {
             return response([
-                'message' => 'nomor rekening sudah ada'
+                'message' => 'nomor rekening already exist'
             ], 409);
         }
 
@@ -46,13 +46,16 @@ class RekeningController extends Controller
     }
 
 
-    // Get all rekening
+    /**Get all rekening */
     public function getRekeningData(){
         $rekening = Rekening::all();
+        $rekening = Rekening::paginate(10);
 
         // if empty data
         if($rekening->isEmpty()){
-            return ['message' => 'Data Kosong'];
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
         }
         return response()->json([
             'success' => true,
@@ -61,14 +64,16 @@ class RekeningController extends Controller
         ], 200);
     }
 
-    // Get rekening by id
+    /**Get rekening by id */
     public function show($id)
     {
         $rekening = Rekening::find($id);
 
         // if empty data
         if($rekening == null){
-            return ['message' => 'Data tidak ditemukan'];
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
         }
         return response()->json([
             'success' => true,
@@ -77,20 +82,22 @@ class RekeningController extends Controller
         ], 200);
     }
 
-    // Update rekening by id
+    /**Update rekening by id */
     public function update(Request $request, $id)
     {
         // only admin can create new rekening
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa update rekening'
+                'message' => 'you are not admin, cannot update rekening'
             ], 403);
         }
         $rekening = Rekening::find($id);
 
         // if empty data
         if($rekening == null){
-            return ['message' => 'Data tidak ditemukan'];
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
         }
 
         $request->validate([
@@ -100,43 +107,56 @@ class RekeningController extends Controller
         ]);
 
         $rekening->update($request->all());
-        return ['message' => 'Data Rekening Berhasil Di Update'];
+        return response ([
+            'message' => 'Data Rekening Successfully Updated',
+            'data' => $rekening
+        ], 200);
     }
 
-    //delete rekening by id
+    /**delete rekening by id */
     public function destroy($id)
     {
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa delete'
+                'message' => 'you are not admin, cannot delete rekening'
             ], 403);
         }
         $rekening = Rekening::find($id);
 
         // if empty data
         if($rekening == null){
-            return ['message' => 'Data tidak ditemukan'];
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
         }
 
         $rekening->delete();
-        return ['message' => 'Data Rekening Berhasil Di Hapus'];
+        return response ([
+            'message' => 'Data Rekening Successfully Deleted',
+            'data' => $rekening
+        ], 200);
     }
 
-    // destroy all rekening
+    /**destroy all rekening */
     public function destroyAll(){
         $rekening = Rekening::all();
         // only admin can create new rekening
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'anda bukan admin, tidak bisa delete all rekening'
+                'message' => 'you are not admin, cannot delete rekening'
             ], 403);
         }
         // if empty data
         if($rekening->isEmpty()){
-            return ['message' => 'Data Kosong'];
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
         }
 
         $rekening->each->delete();
-        return ['message' => 'Data Rekening Berhasil Di Hapus'];
+        return response ([
+            'message' => 'Data Rekening Successfully Deleted',
+            'data' => $rekening
+        ], 200);
     }
 }
