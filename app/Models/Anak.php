@@ -20,4 +20,9 @@ class Anak extends Model
         'status'
     ];
 
+    protected $casts = [
+        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d-m-Y',
+    ];
+
 }

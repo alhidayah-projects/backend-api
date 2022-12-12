@@ -51,4 +51,9 @@ class Donate extends Model
             }
         });
     }
+
+    protected $casts = [
+        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d-m-Y',
+    ];
 }

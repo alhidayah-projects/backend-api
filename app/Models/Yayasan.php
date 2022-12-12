@@ -17,5 +17,10 @@ class Yayasan extends Model
         'sk_provinsi',
         'profil_yayasan',
     ];
+
+    protected $casts = [
+        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d-m-Y',
+    ];
     
 }

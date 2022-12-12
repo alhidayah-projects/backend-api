@@ -34,12 +34,22 @@ class ContactController extends Controller
             'keterangan' => 'required'
         ]);
   
-        Contact::create($request->all());
-        return response ()->json([
-            'success' => true,
-            'message' => 'Thank you for contacting us!',
-            'data' => $request->all()
-        ], 200);
+       //Create New Contact
+       $contact = Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'keterangan' => $request->keterangan
+       ]);
+
+
+       if($contact){
+            return response()->json([
+                'success' => true,
+                'message' => 'Created contact successfully',
+                'data' => $contact
+            ], 201);
+       }
     }
 
     // get contact all data
