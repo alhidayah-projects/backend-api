@@ -97,3 +97,6 @@ php artisan serve
 **Endpoint Yayasan**
 
 -   POST :`api/yayasan`
+-   PUT : `api/yayasan/{id}`
+-   DELETE : `api/yayasan/{id}`
+-   GET : `api/yayasan`

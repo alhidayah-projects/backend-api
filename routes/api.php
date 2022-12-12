@@ -136,4 +136,10 @@ Route::get('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'getA
 Route::middleware('auth:sanctum')->group(function() {
 /**Create Yayasan*/
 Route::post('/yayasan', [\App\Http\Controllers\Api\YayasanController::class, 'create']);
+Route::put('yayasan/{id}', [\App\Http\Controllers\Api\YayasanController::class, 'updateYayasan']);
+Route::delete('yayasan/{id}', [\App\Http\Controllers\Api\YayasanController::class, 'deleteYayasan']);
 });
+
+/**Get Yayasan */
+Route::get('yayasan', [\App\Http\Controllers\Api\YayasanController::class, 'getYayasan']);
+/**********************************   Enpoint Yayasan Route Ends Here   *******************************************/

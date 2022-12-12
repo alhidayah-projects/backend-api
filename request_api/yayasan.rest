@@ -1,8 +1,8 @@
-### create yayasan
+### create Yayasan
 POST http://localhost:8000/api/yayasan
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|HMmCio34WkqaAWkJEKvfX6Gm6DAExj4buSQhfawo
+Authorization: Bearer 1|kLks2WO1PFnVZCuY6jLv2cHNreuEIEsk5kG4wK4d
 
 {
     "nama_yayasan" : "Alhidayah Baitul Hatim",
@@ -13,3 +13,30 @@ Authorization: Bearer 1|HMmCio34WkqaAWkJEKvfX6Gm6DAExj4buSQhfawo
     "sk_provinsi" : "sk_provinsi",
     "profil_yayasan" : "Alhidayah Baitul Hatim adalah lembaga perlindungan anak"
 }
+
+### get yayasan
+GET http://localhost:8000/api/yayasan
+Accept: application/json
+Content-Type: application/json
+
+### update Yayasan
+PUT http://localhost:8000/api/yayasan/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|kLks2WO1PFnVZCuY6jLv2cHNreuEIEsk5kG4wK4d
+{
+    "nama_yayasan" : "Alhidayah Baitul Hatim",
+    "akte_notaris" : "akte_notaris",
+    "kemenkumham" : "kemenkumham",
+    "npwp" : "npwp",
+    "sk_kota":"sk_kota",
+    "sk_provinsi" : "sk_provinsi",
+    "profil_yayasan" : "Alhidayah Baitul Hatim adalah lembaga perlindungan anak"
+}
+
+### Delete Yayasan
+DELETE http://localhost:8000/api/yayasan
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|kLks2WO1PFnVZCuY6jLv2cHNreuEIEsk5kG4wK4d
+
