@@ -102,26 +102,41 @@ class ArticleController extends Controller
         }
         $article = Article::find($id);
 
-        // if empty data
-        if($article == null){
-            return response([
-                'message' => 'article not found',
-                'data' => $article
-            ], 200);
-        }
-
+        // Validate form
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required',
-            'author_id' => 'required'
+            //'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
 
-        $article->update($request->all());
+        // check if image is uploaded
+        if($request->hasFile('image')){
+            // image should be stored in storage/app/public
+            $image = $request->file('image')->store('article', 'public');
+
+            // delete old image
+            \Storage::disk('public')->delete($article->image);
+
+            // update post with new image
+            $article->update([
+                'title' => $request->title,
+                'desc' => $request->desc,
+                'image' => $image
+            ]);
+        }else{
+            // update post without image
+            $article->update([
+                'title' => $request->title,
+                'desc' => $request->desc
+            ]);
+        }
+
+        // redirect with success message
         return response()->json([
             'message' => 'article updated successfully',
             'data' => $article
         ], 200);
+
     }
 
     
@@ -143,8 +158,10 @@ class ArticleController extends Controller
                 'data' => $article
             ], 200);
         }
-
+        // delete image in public/storage/article
+        \Storage::disk('public')->delete($article->image);
         $article->delete();
+
         return response ([
             'message' => 'article deleted successfully',
             'data' => $article
@@ -170,7 +187,12 @@ class ArticleController extends Controller
             ], 200);
         }
 
-        $article->each->delete();
+        // delete image in public/storage/article
+        foreach($article as $a){
+            \Storage::disk('public')->delete($a->image);
+        }
+        $article->delete();
+
         return response ([
             'message' => 'all article deleted successfully',
             'data' => $article
