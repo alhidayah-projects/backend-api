@@ -44,4 +44,4 @@ Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE
 DELETE http://127.0.0.1:8000/api/article
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|eIf1Wn7ZliYb7Dgm7XVaqESkefJXyYpl1SL8UiDE
+Authorization: Bearer 1|2fnuZl5mK2LzJfm6PDX3oPAm3FlSRxK5EDLyNBIo

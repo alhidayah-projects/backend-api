@@ -16,7 +16,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
         // only admin can create new gallery
@@ -82,28 +82,27 @@ class GalleryController extends Controller
     // delete gallery by id
     public function deleteGalleryById($id)
     {
-        $gallery = Gallery::find($id);
-        // if failed
-        if (!$gallery) {
-            return response([
-                'message' => 'gallery not found'
-            ], 200);
-        }
-
-        // only admin can delete gallery
         if (Auth::user()->role != 'admin') {
             return response([
                 'message' => 'you are not admin, you can not delete gallery'
             ], 403);
         }
 
-        // delete image
-        Storage::disk('public')->delete($gallery->image);
-        // delete gallery
+        $gallery = Gallery::find($id);
+
+        // if empty data
+        if($gallery == null){
+            return response ([
+                'message' => 'gallery not found',
+                'data' => $gallery
+            ], 200);
+        }
+        // delete image in public/storage/gallery
+        \Storage::disk('public')->delete($gallery->image);
         $gallery->delete();
 
-        return response()->json([
-            'message' => 'success delete gallery',
+        return response ([
+            'message' => 'gallery deleted successfully',
             'data' => $gallery
         ], 200);
     }
@@ -111,26 +110,30 @@ class GalleryController extends Controller
     /** delete all gallery */
     public function deleteAllGallery()
     {
+        $gallery = Gallery::all();
         // only admin can create new gallery
         if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not delete all gallery'
+            return response ([
+                'message' => 'you are not admin, you can not delete all gallery',
+                'data' => $gallery
             ], 403);
         }
-
-        $gallery = Gallery::all();
-
-        // if data Gallery not found
-        if (count($gallery) == 0) {
-            return response()->json([
-                'message' => 'data Gallery not found'
+        // if empty data
+        if($gallery->isEmpty()){
+            return response ([
+                'message' => 'gallery not found',
+                'data' => $gallery
             ], 200);
         }
 
-        Gallery::truncate();
+        // delete image in public/storage/gallery
+        foreach($gallery as $a){
+            \Storage::disk('public')->delete($a->image);
+        }
+        $gallery->each->delete();
 
-        return response()->json([
-            'message' => 'success delete all data Gallery',
+        return response ([
+            'message' => 'all gallery deleted successfully',
             'data' => $gallery
         ], 200);
     }
@@ -141,26 +144,38 @@ class GalleryController extends Controller
         // only admin can create new gallery
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'you are not admin, you can not update article',
+                'message' => 'you are not admin, you can not update gallery',
                 'data' => $gallery
             ], 403);
         }
         $gallery = Gallery::find($id);
 
-        // if empty data
-        if($gallery == null){
-            return response([
-                'message' => 'gallery not found',
-                'data' => $gallery
-            ], 200);
-        }
-
+        // Validate form
         $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required'
         ]);
 
-        $gallery->update($request->all());
+        // check if image is uploaded
+        if($request->hasFile('image')){
+            // image should be stored in storage/app/public
+            $image = $request->file('image')->store('gallery', 'public');
+
+            // delete old image
+            \Storage::disk('public')->delete($gallery->image);
+
+            // update post with new image
+            $gallery->update([
+                'title' => $request->title,
+                'image' => $image
+            ]);
+        }else{
+            // update post without image
+            $gallery->update([
+                'title' => $request->title
+            ]);
+        }
+
+        // redirect with success message
         return response()->json([
             'message' => 'gallery updated successfully',
             'data' => $gallery

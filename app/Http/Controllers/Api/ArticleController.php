@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -16,7 +17,7 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10000',
             'author_id' => 'required'
         ]);
 
@@ -191,7 +192,7 @@ class ArticleController extends Controller
         foreach($article as $a){
             \Storage::disk('public')->delete($a->image);
         }
-        $article->delete();
+        $article->each->delete();
 
         return response ([
             'message' => 'all article deleted successfully',
