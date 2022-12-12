@@ -18,7 +18,7 @@
         <tr>
             <td>Tanggal Donasi</td>
             <td>:</td>
-            <td>{{ $data->created_at }}</td>
+            <td>{{ $data->created_at->Format('d-m-Y');}}</td>
         </tr>
     </table>
     <table style="margin-left:auto;margin-right:auto;width:80%;text-align:center;background-color:gold;">

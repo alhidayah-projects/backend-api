@@ -12,4 +12,9 @@ class Gallery extends Model
         'title',
         'image',
     ];
+
+    protected $casts = [
+        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d-m-Y',
+    ];
 }

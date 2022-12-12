@@ -28,4 +28,9 @@ class Contact extends Model
             Mail::to($adminEmail)->send(new ContactMail($item));
         });
     }
+
+    protected $casts = [
+        'updated_at' => 'datetime:d-m-Y',
+        'created_at' => 'datetime:d-m-Y',
+    ];
 }
