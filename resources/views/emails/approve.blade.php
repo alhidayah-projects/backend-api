@@ -33,11 +33,13 @@
             <td>:</td>
             <td>{{$data->nominal}}</td>
         </tr>
+        <!-- join table rekening_id in name rekenings -->
         <tr>
-            <td>Rekening Tujuan</td>
+            <td>Bank</td>
             <td>:</td>
-            <td>{{$data->rekening_id}}</td>
+            <td>{{$data->nama_bank}}</td>
         </tr>
+
         <tr>
             <td>Keterangan</td>
             <td>:</td>
