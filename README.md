@@ -49,7 +49,7 @@ php artisan serve
 -   DELETE : `/api/contact/{id}`
 -   DELETE : `/api/contact`
 
-**Endpoint Rekening**
+**Endpoint Rekenings**
 
 -   POST : `/api/rekening`
 -   GET : `/api/rekening`
