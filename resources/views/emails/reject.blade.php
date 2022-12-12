@@ -35,9 +35,9 @@
             <td>{{$data->nominal}}</td>
         </tr>
         <tr>
-            <td>Rekening Tujuan</td>
+            <td>Bank</td>
             <td>:</td>
-            <td>{{$data->rekening_id}}</td>
+            <td>{{$data->nama_bank}}</td>
         </tr>
         <tr>
             <td>Alasan Ditolak,</td>

@@ -53,15 +53,26 @@ class DonateController extends Controller
     /**only admin can approve or reject status donate*/
     public function updateStatusDonate(Request $request, $id)
     {
+        // join table rekening_id in name rekenings
+        $donate = Donate::join('rekenings', 'donates.rekening_id', '=', 'rekenings.id')
+            ->select('donates.*', 'rekenings.nama_bank')
+            ->where('donates.id', $id)
+            ->first();
+
+        if ($donate == null) {
+            return response([
+                'message' => 'donate not found'
+            ], 200);
+        }
+        // only admin can approve or reject status donate
         if (Auth::user()->role != 'admin') {
             return response([
-                'message' => 'you are not admin, you can not update status donate'
+                'message' => 'You are not admin, you can not approve or reject status donate'
             ], 403);
         }
-        $donate = Donate::findOrFail($id);
-
-        $donate->update($request->all());
-
+        $donate->update([
+            'status' => $request->status,
+        ]);
         return response()->json([
             'message' => 'Donate updated successfully',
             'data' => $donate

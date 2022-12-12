@@ -122,7 +122,7 @@ class YayasanController extends Controller
             ], 403);
         }
 
-        $Yayasan = Yayasan::all();
+        $yayasan = Yayasan::all();
 
         // if data yayasan not found
         if (count($yayasan) == 0) {
