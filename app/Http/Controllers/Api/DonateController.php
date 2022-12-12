@@ -94,6 +94,8 @@ class DonateController extends Controller
                 'message' => 'donate not found'
             ], 200);
         }
+        // delete image in public/storage/bukti
+        Storage::disk('public')->delete($donate->bukti_pembayaran);
         $donate->delete();
         return response()->json([
             'message' => 'Donate deleted successfully',
@@ -107,22 +109,30 @@ class DonateController extends Controller
         $donate = Donate::all();
         // only admin can create new donate
         if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'You are not admin, you can not delete all donate'
+            return response ([
+                'message' => 'you are not admin, you can not delete all donate',
+                'data' => $donate
             ], 403);
         }
         // if empty data
         if($donate->isEmpty()){
             return response ([
-                'message' => 'Data donate not found'
+                'message' => 'donate not found',
+                'data' => $donate
             ], 200);
         }
 
+        // delete image in public/storage/donate
+        foreach($donate as $a){
+            \Storage::disk('public')->delete($a->bukti_pembayaran);
+        }
         $donate->each->delete();
+
         return response ([
-            'message' => 'All donate deleted successfully',
+            'message' => 'all donate deleted successfully',
             'data' => $donate
         ], 200);
+
     }
 
     /**get all donate*/
