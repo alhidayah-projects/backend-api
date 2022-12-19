@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreign('rekening_id')->references('id')->on('rekenings')->onDelete('cascade');
             $table->string('telepon', 15);
             $table->string('email', 50);
-            $table->text('keterangan');
+            $table->text('keterangan')->nullable();
             $table->enum('status', ['check', 'reject', 'approve'])->default('check')->nullable();
             $table->string('bukti_pembayaran', 100);
             $table->timestamps();

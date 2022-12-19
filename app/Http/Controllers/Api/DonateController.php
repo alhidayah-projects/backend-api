@@ -24,7 +24,7 @@ class DonateController extends Controller
             'rekening_id' => 'required',
             'telepon' => 'required',
             'email' => 'required',
-            'keterangan' => 'required',
+            'keterangan' => 'nullable',
             'bukti_pembayaran' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10000'
         ]);
 
