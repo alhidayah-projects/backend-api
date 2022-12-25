@@ -102,7 +102,14 @@ class YayasanController extends Controller
             'npwp' => 'required|string',
             'sk_kota' => 'required|string',
             'sk_provinsi' => 'required|string',
-            'profil_yayasan' => 'required|string'
+            'profil_yayasan' => 'required|string',
+            'moto' => 'required|string',
+            'visi' => 'required|string',
+            'misi' => 'required|string',
+            'alamat' => 'required|string',
+            'no_telp' => 'required|string',
+            'email' => 'required|string',
+            'instagram' => 'required|string',
         ]);
 
         // check if validator fails
@@ -118,6 +125,13 @@ class YayasanController extends Controller
             'sk_kota' => $request->sk_kota,
             'sk_provinsi' => $request->sk_provinsi,
             'profil_yayasan' => $request->profil_yayasan,
+            'moto' => $request->moto,
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            'email' => $request->email,
+            'instagram' => $request->instagram,
         ]);
 
         return response()->json([

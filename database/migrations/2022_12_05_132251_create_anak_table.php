@@ -22,7 +22,7 @@ return new class extends Migration
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('nama_ibu');
             $table->string('nama_ayah');
-            $table->enum('status', ['yatim', 'piatu', 'yp']);
+            $table->enum('status', ['Yatim', 'Piatu', 'YP','TM']);
             $table->timestamps();
         });
     }

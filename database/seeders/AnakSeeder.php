@@ -24,7 +24,7 @@ class AnakSeeder extends Seeder
             'jenis_kelamin' => 'L',
             'nama_ibu' => 'Siti',
             'nama_ayah' => 'Budi',
-            'status' => 'yatim'
+            'status' => 'Yatim'
         ]);
         Anak::create([
             'nama_anak' => 'Budi',
@@ -34,7 +34,7 @@ class AnakSeeder extends Seeder
             'jenis_kelamin' => 'L',
             'nama_ibu' => 'Siti',
             'nama_ayah' => 'Budi',
-            'status' => 'piatu'
+            'status' => 'Piatu'
         ]);
 
         Anak::create([
@@ -45,7 +45,18 @@ class AnakSeeder extends Seeder
             'jenis_kelamin' => 'L',
             'nama_ibu' => 'Siti',
             'nama_ayah' => 'Budi',
-            'status' => 'yp'
+            'status' => 'YP'
+        ]);
+
+        Anak::create([
+            'nama_anak' => 'Dedi',
+            'nik' => '123456789012348',
+            'tempat_lahir' => 'Bandung',
+            'tanggal_lahir' => '2000-01-01',
+            'jenis_kelamin' => 'L',
+            'nama_ibu' => 'Siti',
+            'nama_ayah' => 'Budi',
+            'status' => 'TM'
         ]);
     }
 }
