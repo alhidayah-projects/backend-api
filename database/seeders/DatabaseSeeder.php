@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 AnakSeeder::class,
                 GallerySeeder::class,
                 ArticleSeeder::class,
+                YayasanSeeder::class,
             ]);
 
     }

@@ -104,3 +104,4 @@ php artisan serve
 **Endpoint Landing**
 
 -   GET : `api/landing`
+-   GET : `api/landing/telepon`
