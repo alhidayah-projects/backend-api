@@ -143,3 +143,10 @@ Route::delete('yayasan/{id}', [\App\Http\Controllers\Api\YayasanController::clas
 /**Get Yayasan */
 Route::get('yayasan', [\App\Http\Controllers\Api\YayasanController::class, 'getYayasan']);
 /**********************************   Enpoint Yayasan Route Ends Here   *******************************************/
+
+
+/**********************************   Enpoint landing page Route Starts Here   *******************************************/
+
+/**Get Article and Gallery*/
+Route::get('/landing', [\App\Http\Controllers\Api\LandingController::class, 'index']);
+/**********************************   Enpoint landing page Ends Here   *******************************************/

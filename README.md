@@ -100,3 +100,7 @@ php artisan serve
 -   PUT : `api/yayasan/{id}`
 -   DELETE : `api/yayasan/{id}`
 -   GET : `api/yayasan`
+
+**Endpoint Landing**
+
+-   GET : `api/landing`
