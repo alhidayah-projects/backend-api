@@ -16,6 +16,13 @@ class Yayasan extends Model
         'sk_kota',
         'sk_provinsi',
         'profil_yayasan',
+        'moto',
+        'visi',
+        'misi',
+        'alamat',
+        'no_telp',
+        'email',
+        'instagram',
     ];
 
     protected $casts = [

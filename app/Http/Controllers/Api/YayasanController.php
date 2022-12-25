@@ -24,13 +24,20 @@ class YayasanController extends Controller
 
         // validate request
         $request->validate([
-            'nama_yayasan' => 'required|string',
-            'akte_notaris' => 'required|string',
-            'kemenkumham' => 'required|string',
-            'npwp' => 'required|string',
-            'sk_kota' => 'required|string',
-            'sk_provinsi' => 'required|string',
-            'profil_yayasan' => 'required|string',
+            'nama_yayasan' => 'nullable|string',
+            'akte_notaris' => 'nullable|string',
+            'kemenkumham' => 'nullable|string',
+            'npwp' => 'nullable|string',
+            'sk_kota' => 'nullable|string',
+            'sk_provinsi' => 'nullable|string',
+            'profil_yayasan' => 'nullable|string',
+            'moto' => 'nullable|string',
+            'visi' => 'nullable|string',
+            'misi' => 'nullable|string',
+            'alamat' => 'nullable|string',
+            'no_telp' => 'nullable|string',
+            'email' => 'nullable|string',
+            'instagram' => 'nullable|string',
         ]);
 
         // create yayasan
@@ -42,6 +49,13 @@ class YayasanController extends Controller
             'sk_kota' => $request->sk_kota,
             'sk_provinsi' => $request->sk_provinsi,
             'profil_yayasan' => $request->profil_yayasan,
+            'moto' => $request->moto,
+            'visi' => $request->visi,
+            'misi' => $request->misi,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            'email' => $request->email,
+            'instagram' => $request->instagram,
         ], 201);
 
         // return yayasan

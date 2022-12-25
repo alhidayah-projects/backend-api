@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('moto')->nullable();
             $table->string('visi')->nullable();
             $table->string('misi')->nullable();
-            $table->string('alamat')->nullable();
+            $table->longText('alamat')->nullable();
             $table->string('no_telp')->nullable();
             $table->string('email')->nullable();
             $table->string('instagram')->nullable();
