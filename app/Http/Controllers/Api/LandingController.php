@@ -42,4 +42,19 @@ class LandingController extends Controller
         ], 200);
     }
 
+    /**get akte_notaris, sk_kota, sk_provinsi, npwp, profil_yayasan in yayasan */
+    public function getAbout()
+    {
+        $about = Yayasan::select('akte_notaris', 'kemenkumham', 'sk_kota', 'sk_provinsi', 'npwp', 'profil_yayasan')->first();
+
+        return response()->json([
+            'message' => 'success get data',
+            'about' => $about
+        ], 200);
+
+        return response([
+            'message' => 'failed get data'
+        ], 200);
+    }
+
 }

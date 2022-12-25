@@ -105,3 +105,4 @@ php artisan serve
 
 -   GET : `api/landing`
 -   GET : `api/landing/telepon`
+-   GET : `api/landing/profile`
