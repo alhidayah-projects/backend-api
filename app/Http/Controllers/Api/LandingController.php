@@ -57,4 +57,19 @@ class LandingController extends Controller
         ], 200);
     }
 
+    /**get motto, visi, misi, in yayasan */
+    public function getVisiMisi()
+    {
+        $visi_misi = Yayasan::select('moto', 'visi', 'misi')->first();
+
+        return response()->json([
+            'message' => 'success get data',
+            'visi_misi' => $visi_misi
+        ], 200);
+
+        return response([
+            'message' => 'failed get data'
+        ], 200);
+    }
+
 }

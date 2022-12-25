@@ -152,4 +152,6 @@ Route::get('/landing', [\App\Http\Controllers\Api\LandingController::class, 'ind
 Route::get('/landing/telepon', [\App\Http\Controllers\Api\LandingController::class, 'getNoTelp']);
 /**Get Profile Yayasan */
 Route::get('/landing/profile', [\App\Http\Controllers\Api\LandingController::class, 'getAbout']);
+/**Get visi misi */
+Route::get('/landing/visi-misi', [\App\Http\Controllers\Api\LandingController::class, 'getVisiMisi']);
 /**********************************   Enpoint landing page Ends Here   *******************************************/
