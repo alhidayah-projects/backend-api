@@ -6,19 +6,40 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Gallery;
+use App\Models\Yayasan;
 
 class LandingController extends Controller
 {
-    // get 4 data article and 8 data gallery
+    /**get 4 data article and 8 data gallery*/
     public function index()
     {
         $articles = Article::orderBy('created_at', 'desc')->take(4)->get();
-        // url image gallery
         $galleries = Gallery::orderBy('created_at', 'desc')->take(8)->get('image');
 
         return response()->json([
+            'message' => 'success get data',
             'articles' => $articles,
             'galleries' => $galleries
         ], 200);
+
+        return response([
+            'message' => 'failed get data'
+        ], 200);
     }
+
+    /**get no_telp in yayasan */
+    public function getNoTelp()
+    {
+        $no_telp = Yayasan::select('no_telp')->first();
+
+        return response()->json([
+            'message' => 'success get data',
+            'no_telp' => $no_telp
+        ], 200);
+
+        return response([
+            'message' => 'failed get data'
+        ], 200);
+    }
+
 }

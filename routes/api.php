@@ -146,7 +146,8 @@ Route::get('yayasan', [\App\Http\Controllers\Api\YayasanController::class, 'getY
 
 
 /**********************************   Enpoint landing page Route Starts Here   *******************************************/
-
 /**Get Article and Gallery*/
 Route::get('/landing', [\App\Http\Controllers\Api\LandingController::class, 'index']);
+/**Get No Telepon */
+Route::get('/landing/telepon', [\App\Http\Controllers\Api\LandingController::class, 'getNoTelp']);
 /**********************************   Enpoint landing page Ends Here   *******************************************/
