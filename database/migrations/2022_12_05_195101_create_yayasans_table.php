@@ -21,7 +21,14 @@ return new class extends Migration
             $table->string('npwp')->nullable();
             $table->string('sk_kota')->nullable();
             $table->string('sk_provinsi')->nullable();
-            $table->string('profil_yayasan')->nullable();
+            $table->longText('profil_yayasan')->nullable();
+            $table->string('moto')->nullable();
+            $table->string('visi')->nullable();
+            $table->string('misi')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('no_telp')->nullable();
+            $table->string('email')->nullable();
+            $table->string('instagram')->nullable();
             $table->timestamps();
         });
     }

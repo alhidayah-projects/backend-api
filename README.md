@@ -67,7 +67,7 @@ php artisan serve
 -   GET : `api/donate`
 -   GET : `api/donate/{id}`
 
-**Endpoint**
+**Endpoint Article**
 
 -   POST:`/api/article`
 -   GET:`/api/article`
