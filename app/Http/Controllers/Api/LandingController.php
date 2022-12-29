@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Gallery;
 use App\Models\Yayasan;
+use App\Models\Donate;
 
 class LandingController extends Controller
 {
@@ -72,4 +73,24 @@ class LandingController extends Controller
         ], 200);
     }
 
+
+    /**search donate by donasi_id*/
+    public function getDonate($donasi_id)
+    {
+        $donate = Donate::select('id', 'nama', 'status', 'nominal', 'created_at')
+            ->where('donasi_id', $donasi_id)
+            ->get();
+
+        // if not found
+        if ($donate->isEmpty()) {
+            return response()->json([
+                'message' => 'donasi_id not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'success get data',
+            'donate' => $donate
+        ], 200);
+    }
 }

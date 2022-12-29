@@ -107,3 +107,4 @@ php artisan serve
 -   GET : `api/landing/telepon`
 -   GET : `api/landing/profile`
 -   GET : `api/landing/visi-misi`
+-   GET : `api/landing/donate/{id}`
