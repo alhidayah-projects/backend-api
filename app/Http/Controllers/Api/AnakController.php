@@ -175,4 +175,25 @@ class AnakController extends Controller
             'data' => $anak
         ], 200);
     }
+
+    /** filter query by name and nik */
+    public function filterAnak(Request $request)
+    {
+        $anak = Anak::where('nik', 'like', '%' . $request->nik . '%')
+        ->where('nama_anak', 'like', '%' . $request->nama_anak . '%')
+        ->get();
+
+        // if data anak not found
+        if (count($anak) == 0) {
+            return response()->json([
+                'message' => 'data anak not found',
+                'data' => $anak
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'data anak has been found successfully',
+            'data' => $anak
+        ], 200);
+    }
 }

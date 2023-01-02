@@ -108,3 +108,8 @@ php artisan serve
 -   GET : `api/landing/profile`
 -   GET : `api/landing/visi-misi`
 -   GET : `api/landing/donate/{id}`
+-   GET : `api/landing/contact`
+
+**Endpoint Filter**
+
+-   GET : `api/anak?nama_anak=aulia&nik=123456789012345`

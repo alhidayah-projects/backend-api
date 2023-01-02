@@ -130,6 +130,8 @@ Route::delete('/anak', [\App\Http\Controllers\Api\AnakController::class, 'delete
 Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'getAllAnak']);
 /**Get Anak By Id*/
 Route::get('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'getAnakById']);
+/**Filter Anak by name*/
+Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'filterAnak']);
 /**********************************   Enpoint Anak Route Ends Here   *******************************************/
 
 /**********************************   Enpoint Yayasan Route Starts Here   *******************************************/
