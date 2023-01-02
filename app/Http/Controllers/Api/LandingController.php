@@ -93,4 +93,19 @@ class LandingController extends Controller
             'donate' => $donate
         ], 200);
     }
+
+    /**get alamat, telepon, instagram, email in yayasan */
+    public function getContact()
+    {
+        $contact = Yayasan::select('alamat', 'no_telp', 'instagram', 'email')->first();
+
+        return response()->json([
+            'message' => 'success get data',
+            'contact' => $contact
+        ], 200);
+
+        return response([
+            'message' => 'failed get data'
+        ], 200);
+    }
 }
