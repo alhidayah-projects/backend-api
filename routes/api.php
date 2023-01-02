@@ -162,4 +162,6 @@ Route::get('/landing/donate/{id}', [\App\Http\Controllers\Api\LandingController:
 Route::get('/landing/contact', [\App\Http\Controllers\Api\LandingController::class, 'getContact']);
 /**Get Article by title */
 Route::get('/landing/article', [\App\Http\Controllers\Api\LandingController::class, 'searchArticle']);
+/**Get Gallery by title */
+Route::get('/landing/gallery', [\App\Http\Controllers\Api\LandingController::class, 'searchGallery']);
 /**********************************   Enpoint landing page Ends Here   *******************************************/

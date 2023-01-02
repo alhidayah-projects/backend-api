@@ -127,4 +127,23 @@ class LandingController extends Controller
             'articles' => $articles
         ], 200);
     }
+    
+    /**filter gallery by title*/
+    public function searchGallery(Request $request)
+    {
+        $galleries = Gallery::where('title', 'like', '%' . $request->title . '%')
+            ->paginate(10); 
+
+        // if not found
+        if ($galleries->isEmpty()) {
+            return response()->json([
+                'message' => 'title not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'success get data',
+            'galleries' => $galleries
+        ], 200);
+    }
 }

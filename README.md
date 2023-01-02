@@ -114,3 +114,4 @@ php artisan serve
 
 -   GET : `api/anak?nama_anak=aulia&nik=123456789012345`
 -   GET : `api/landing/article?title=Article`
+-   GET : `api/landing/gallery?title=my gallery`
