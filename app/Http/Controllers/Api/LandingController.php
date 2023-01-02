@@ -108,4 +108,23 @@ class LandingController extends Controller
             'message' => 'failed get data'
         ], 200);
     }
+
+    /**filter article by title*/
+    public function searchArticle(Request $request)
+    {
+        $articles = Article::where('title', 'like', '%' . $request->title . '%')
+            ->paginate(10); 
+
+        // if not found
+        if ($articles->isEmpty()) {
+            return response()->json([
+                'message' => 'title not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'success get data',
+            'articles' => $articles
+        ], 200);
+    }
 }

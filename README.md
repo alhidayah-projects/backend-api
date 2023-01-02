@@ -113,3 +113,4 @@ php artisan serve
 **Endpoint Filter**
 
 -   GET : `api/anak?nama_anak=aulia&nik=123456789012345`
+-   GET : `api/landing/article?title=Article`
