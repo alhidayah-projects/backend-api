@@ -123,4 +123,52 @@ class PengurusController extends Controller
         ], 200);
     }
 
+    /**Delete All Pengurus */
+    public function deleteAllPengurus(){
+
+        $pengurus = pengurus::all();
+        // only admin can create new pengurus
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, cannot delete pengurus'
+            ], 403);
+        }
+        // if empty data
+        if($pengurus->isEmpty()){
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
+        }
+
+        $pengurus->each->delete();
+        return response ([
+            'message' => 'Data pengurus Successfully Deleted',
+            'data' => $pengurus
+        ], 200);
+    }
+
+    /**Delete Pengurus by Id */
+    public function deletePengurusbyId($id)
+    {
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, cannot delete pengurus'
+            ], 403);
+        }
+        $pengurus = pengurus::find($id);
+
+        // if empty data
+        if($pengurus == null){
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
+        }
+
+        $pengurus->delete();
+        return response ([
+            'message' => 'Data pengurus Successfully Deleted',
+            'data' => $pengurus
+        ], 200);
+    }
+
 }

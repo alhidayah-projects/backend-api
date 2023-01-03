@@ -125,4 +125,5 @@ php artisan serve
 -   GET : `api/pengurus?jabatan=ketua&nama_pengurus=dadan`
 -   GET : `api/pengurus`
 -   GET : `api/pengurus/{id}`
--   PUT : `api/pengurus{id}`
+-   PUT : `api/pengurus/{id}`
+-   DELETE : `api/pengurus/{id}`
