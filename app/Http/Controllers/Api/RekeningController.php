@@ -46,23 +46,23 @@ class RekeningController extends Controller
     }
 
 
-    /**Get all rekening */
-    public function getRekeningData(){
-        $rekening = Rekening::all();
-        $rekening = Rekening::paginate(10);
+    // /**Get all rekening */
+    // public function getRekeningData(){
+    //     $rekening = Rekening::all();
+    //     $rekening = Rekening::paginate(10);
 
-        // if empty data
-        if($rekening->isEmpty()){
-            return response ([
-                'message' => 'Data not found'
-            ], 200);
-        }
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Rekening',
-            'data' => $rekening
-        ], 200);
-    }
+    //     // if empty data
+    //     if($rekening->isEmpty()){
+    //         return response ([
+    //             'message' => 'Data not found'
+    //         ], 200);
+    //     }
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Data Rekening',
+    //         'data' => $rekening
+    //     ], 200);
+    // }
 
     /**Get rekening by id */
     public function show($id)
