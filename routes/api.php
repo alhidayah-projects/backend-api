@@ -166,3 +166,10 @@ Route::get('/landing/article', [\App\Http\Controllers\Api\LandingController::cla
 /**Get Gallery by title */
 Route::get('/landing/gallery', [\App\Http\Controllers\Api\LandingController::class, 'searchGallery']);
 /**********************************   Enpoint landing page Ends Here   *******************************************/
+
+/**********************************   Enpoint landing page Route Starts Here   *******************************************/
+Route::middleware('auth:sanctum')->group(function(){
+    /**Create Pengurus */
+    Route::post('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'createdPengurus']);
+    /**Get Pengurus */
+});
