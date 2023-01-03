@@ -171,7 +171,8 @@ Route::get('/landing/gallery', [\App\Http\Controllers\Api\LandingController::cla
 Route::middleware('auth:sanctum')->group(function(){
     /**Create Pengurus */
     Route::post('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'createdPengurus']);
-    /**Get Pengurus */
+    /**Uodate Pengurus */
+    Route::put('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::class, 'updatePengurus']);
 });
 /**Filter pengurus */
 Route::get('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'filterPengurus']);

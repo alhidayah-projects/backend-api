@@ -87,4 +87,40 @@ class PengurusController extends Controller
         ], 200);
     }
 
+    /**Update Pengurus */
+    public function updatePengurus(Request $request, $id)
+    {
+        // only admin can create new pengurus
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, cannot update pengurus'
+            ], 403);
+        }
+        $pengurus = pengurus::find($id);
+
+        // if empty data
+        if($pengurus == null){
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
+        }
+
+        $request->validate([
+            'nama_pengurus' => 'nullable|string',
+            'nik' => 'nullable|string',
+            'tempat_lahir' => 'nullable|string',
+            'tanggal_lahir' => 'nullable|date',
+            'jk' => 'nullable|string',
+            'jabatan' => 'nullable|string',
+            'no_telp' => 'nullable|string',
+            'alamat' => 'nullable|string',
+        ]);
+
+        $pengurus->update($request->all());
+        return response ([
+            'message' => 'Data pengurus Successfully Updated',
+            'data' => $pengurus
+        ], 200);
+    }
+
 }
