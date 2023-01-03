@@ -175,6 +175,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::put('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::class, 'updatePengurus']);
     /**Delete Pengurus by Id */
     Route::delete('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::class, 'deletePengurusbyId']);
+    /**Delete All Pengurus */
+    Route::delete('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'deleteAllPengurus']);
 });
 /**Filter pengurus */
 Route::get('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'filterPengurus']);

@@ -127,3 +127,4 @@ php artisan serve
 -   GET : `api/pengurus/{id}`
 -   PUT : `api/pengurus/{id}`
 -   DELETE : `api/pengurus/{id}`
+-   DELETE : `api/pengurus`
