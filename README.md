@@ -117,3 +117,4 @@ php artisan serve
 -   GET : `api/landing/gallery?title=my gallery`
 -   GET : `api/contact?name=panji&email=panjiprasetyo025@gmail.com`
 -   GET : `api/donate?status=approve`
+-   GET : `api/rekening?nama_bank=bni`

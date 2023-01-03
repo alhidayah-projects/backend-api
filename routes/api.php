@@ -53,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'destroyAll']);
 });
 /**Get all rekening*/
-Route::get('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'getRekeningData']);
+Route::get('/rekening', [\App\Http\Controllers\Api\RekeningController::class, 'filterRekening']);
 /**Get rekening by id*/
 Route::get('/rekening/{id}', [\App\Http\Controllers\Api\RekeningController::class, 'show']);
 /**********************************   Enpoint Rekening Route Ends Here   *******************************************/
