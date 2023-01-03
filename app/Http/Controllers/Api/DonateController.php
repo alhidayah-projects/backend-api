@@ -177,4 +177,21 @@ class DonateController extends Controller
 
     }
 
+    /**filter donate by status check, approve, reject*/
+    public function filterDonate(Request $request)
+    {
+        $donate = Donate::where('status', 'like', '%' . $request->status . '%')
+            ->paginate(10);
+        // if not found
+        if ($donate == null) {
+            return response([
+                'message' => 'donate not found'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Donate retrieved successfully',
+            'data' => $donate
+        ], 200);
+    }
+
 }

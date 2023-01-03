@@ -71,7 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/donate', [\App\Http\Controllers\Api\DonateController::class, 'deleteAllDonate']);
 });
 /**Get all donate*/
-Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'getAllDonate']);
+Route::get('/donate', [\App\Http\Controllers\Api\DonateController::class, 'filterDonate']);
 /**Get donate by id*/
 Route::get('/donate/{id}', [\App\Http\Controllers\Api\DonateController::class, 'getDonateById']);
 /**********************************   Enpoint Donates Route Ends Here   *******************************************/
