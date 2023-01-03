@@ -47,24 +47,24 @@ class AnakController extends Controller
 
     }
 
-    /**get all data anak */
-    public function getAllAnak()
-    {
-        $anak = Anak::all();
-        $anak = Anak::paginate(10);
-        // if data anak not found
-        if (count($anak) == 0) {
-            return response()->json([
-                'message' => 'data anak not found',
-                'data' => $anak
-            ],200);
-        }
+    // /**get all data anak */
+    // public function getAllAnak()
+    // {
+    //     $anak = Anak::all();
+    //     $anak = Anak::paginate(10);
+    //     // if data anak not found
+    //     if (count($anak) == 0) {
+    //         return response()->json([
+    //             'message' => 'data anak not found',
+    //             'data' => $anak
+    //         ],200);
+    //     }
 
-        return response()->json([
-            'message' => 'data anak has been found successfully',
-            'data' => $anak
-        ], 200);
-    }
+    //     return response()->json([
+    //         'message' => 'data anak has been found successfully',
+    //         'data' => $anak
+    //     ], 200);
+    // }
 
     /**get data anak by id */
     public function getAnakById($id)
@@ -181,7 +181,8 @@ class AnakController extends Controller
     {
         $anak = Anak::where('nik', 'like', '%' . $request->nik . '%')
         ->where('nama_anak', 'like', '%' . $request->nama_anak . '%')
-        ->get();
+        ->paginate(10);
+  
 
         // if data anak not found
         if (count($anak) == 0) {

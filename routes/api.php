@@ -29,7 +29,8 @@ Route::post('/reset-password', [\App\Http\Controllers\Api\NewPasswordController:
 
 /**********************************   Enpoint Contact Route Starts Here   *******************************************/
 Route::post('/contact', [\App\Http\Controllers\Api\ContactController::class, 'store']);
-Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getContactData']);
+//Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'getContactData']);
+Route::get('/contact', [\App\Http\Controllers\Api\ContactController::class, 'filterContact']);
 Route::get('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'getContactDataById']);
 Route::middleware('auth:sanctum')->group(function () {
     /**Delete contact by id*/
@@ -127,7 +128,7 @@ Route::delete('/anak', [\App\Http\Controllers\Api\AnakController::class, 'delete
 });
 
 /**Get All Anak*/
-Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'getAllAnak']);
+//Route::get('/anak', [\App\Http\Controllers\Api\AnakController::class, 'getAllAnak']);
 /**Get Anak By Id*/
 Route::get('/anak/{id}', [\App\Http\Controllers\Api\AnakController::class, 'getAnakById']);
 /**Filter Anak by name*/

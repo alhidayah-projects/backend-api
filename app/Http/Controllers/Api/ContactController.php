@@ -52,28 +52,28 @@ class ContactController extends Controller
        }
     }
 
-    // get contact all data
-    public function getContactData()
-    {
-        $contact = Contact::all();
-        $contact = Contact::paginate(5);
+    // /**get contact all data*/
+    // public function getContactData()
+    // {
+    //     $contact = Contact::all();
+    //     $contact = Contact::paginate(5);
 
-        // if empty data
-        if($contact->isEmpty()){
-            return response()->json([
-                'success' => false,
-                'message' => 'Data not found',
-                'data' => $contact
-            ], 200);
-        }
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Contact',
-            'data' => $contact
-        ], 200);
-    }
+    //     // if empty data
+    //     if($contact->isEmpty()){
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Data not found',
+    //             'data' => $contact
+    //         ], 200);
+    //     }
+    //     return response()->json([
+    //         'success' => true,
+    //         'message' => 'Data Contact',
+    //         'data' => $contact
+    //     ], 200);
+    // }
 
-    // get contact data by id
+    /** get contact data by id*/
     public function getContactDataById($id)
     {
         $contact = Contact::find($id);
@@ -93,7 +93,7 @@ class ContactController extends Controller
         ], 200);
     }
 
-    // delete contact data by id
+    /** delete contact data by id */
     public function deleteContactDataById($id)
     {
         // if not admin can not delete
@@ -121,7 +121,7 @@ class ContactController extends Controller
         ], 200);
     }
     
-    // delete all contact data
+    /** delete all contact data */
     public function deleteAllContactData()
     {
         $contact = Contact::all();
@@ -144,6 +144,27 @@ class ContactController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Data Contact Successfully Deleted',
+            'data' => $contact
+        ], 200);
+    }
+
+    /** filter contact data by name */
+    public function filterContact(Request $request)
+    {
+        $contact = Contact::where('name', 'like', '%' . $request->name . '%')
+        ->where('email', 'like', '%' . $request->email . '%')
+        ->paginate(10); 
+
+        // if data Contact not found
+        if (count($contact) == 0) {
+            return response()->json([
+                'message' => 'data Contact not found',
+                'data' => $contact
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'data Contact has been found successfully',
             'data' => $contact
         ], 200);
     }
