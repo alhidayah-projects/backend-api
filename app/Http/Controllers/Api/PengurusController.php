@@ -51,4 +51,22 @@ class PengurusController extends Controller
         ], 201);
     }
 
+        /**get pengurus by jabatan and nama */
+        public function filterPengurus(Request $request)
+        {
+            $pengurus = pengurus::where('nama_pengurus', 'like', '%' . $request->nama_pengurus . '%')
+                ->where('jabatan', 'like', '%' . $request->jabatan)
+                ->paginate(10);
+            // if not found
+            if ($pengurus == null) {
+                return response([
+                    'message' => 'pengurus not found'
+                ], 200);
+            }
+            return response()->json([
+                'message' => 'pengurus retrieved successfully',
+                'data' => $pengurus
+            ], 200);
+        }
+
 }

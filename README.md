@@ -122,3 +122,5 @@ php artisan serve
 **Endpoint Pengurus**
 
 -   POST : `api/pengurus`
+-   GET : `api/pengurus?jabatan=ketua&nama_pengurus=dadan`
+-   GET : `api/pengurus`

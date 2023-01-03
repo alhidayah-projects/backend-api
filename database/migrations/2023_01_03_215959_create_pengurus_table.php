@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pengurus', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pengurus');
-            $table->string('nik');
+            $table->string('nik')->unique();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->enum('jk',['L', 'P']);
