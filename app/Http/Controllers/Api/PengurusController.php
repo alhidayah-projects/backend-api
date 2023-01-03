@@ -69,4 +69,22 @@ class PengurusController extends Controller
             ], 200);
         }
 
+        /**Get Pengurus by id */
+    public function getPengurusbyId($id)
+    {
+        $pengurus = pengurus::find($id);
+
+        // if empty data
+        if($pengurus == null){
+            return response ([
+                'message' => 'Data not found'
+            ], 200);
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Data pengurus',
+            'data' => $pengurus
+        ], 200);
+    }
+
 }

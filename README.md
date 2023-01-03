@@ -124,3 +124,4 @@ php artisan serve
 -   POST : `api/pengurus`
 -   GET : `api/pengurus?jabatan=ketua&nama_pengurus=dadan`
 -   GET : `api/pengurus`
+-   GET : `api/pengurus/{id}`

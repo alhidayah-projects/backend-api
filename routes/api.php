@@ -175,3 +175,5 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 /**Filter pengurus */
 Route::get('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'filterPengurus']);
+/**Get Pengurus by Id */
+Route::get('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::class, 'getPengurusbyId']);
