@@ -128,3 +128,11 @@ php artisan serve
 -   PUT : `api/pengurus/{id}`
 -   DELETE : `api/pengurus/{id}`
 -   DELETE : `api/pengurus`
+
+**Endpoint Dashboard**
+
+-   GET : `/dashboard/donate`
+-   GET : `/dashboard/donatetotal`
+-   GET : `/dashboard/article`
+-   GET : `/dashboard/anak`
+-   GET : `/dashboard/gallery`
