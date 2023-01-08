@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
                 GallerySeeder::class,
                 ArticleSeeder::class,
                 YayasanSeeder::class,
+                PengurusSeeder::class,
             ]);
 
     }

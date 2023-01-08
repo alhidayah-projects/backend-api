@@ -19,13 +19,6 @@ class GalleryController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
-        // only admin can create new gallery
-        if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not create new gallery'
-            ], 403);
-        }
-
         $gallery = Gallery::create([
             'title' => $request->title,
             // image upload
