@@ -21,14 +21,6 @@ class ArticleController extends Controller
             'author_id' => 'required'
         ]);
 
-        // only admin can create new article
-        if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not create new article',
-                'data' => $article
-            ], 403);
-        }
-
         $article=Article::create([
             'author_id' => $request->author_id,
             'title' => $request->title,
