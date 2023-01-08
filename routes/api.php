@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'deleteContactDataById']);
     /**Delete all contact*/
     Route::delete('/contact', [\App\Http\Controllers\Api\ContactController::class, 'deleteAllContactData']);
+    /**update is_read */
+    Route::put('/contact/{id}', [\App\Http\Controllers\Api\ContactController::class, 'updateIsRead']);
 });
 /**********************************   Enpoint Contact Route Ends Here   *******************************************/
 

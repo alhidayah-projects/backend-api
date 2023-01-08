@@ -168,5 +168,39 @@ class ContactController extends Controller
             'data' => $contact
         ], 200);
     }
+
+
+    /** admin can update is_read data */
+    public function updateIsRead(Request $request, $id)
+    {
+        $contact = Contact::find($id);
+
+        // if empty data
+        if($contact == null){
+            return response ()->json([
+                'success' => false,
+                'message' => 'Data not found',
+                'data' => $contact
+            ], 200);
+        }
+
+        // only admin can update is_read data
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not update data'
+            ], 403);
+        }
+
+        $contact->update([
+            'is_read' => $request->is_read
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Contact Successfully Updated',
+            'data' => $contact
+        ], 200);
+    }
+    
 }
 
