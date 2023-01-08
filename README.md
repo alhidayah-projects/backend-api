@@ -135,4 +135,8 @@ php artisan serve
 -   GET : `/dashboard/donatetotal`
 -   GET : `/dashboard/article`
 -   GET : `/dashboard/anak`
+-   GET : `/dashboard/anakyatim`
+-   GET : `/dashboard/anakpiatu`
+-   GET : `/dashboard/anakyp`
+-   GET : `/dashboard/anaktm`
 -   GET : `/dashboard/gallery`

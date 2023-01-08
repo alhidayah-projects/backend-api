@@ -78,6 +78,74 @@ class DashboardController extends Controller
         ], 200);
     }
 
+    /**Count Anak By Anak Yatim*/
+    public function countAnakYatim(){
+
+        $anak = DB::table('anak')->where('status','Yatim')->count();
+
+           // if not found
+           if ($anak == null) {
+            return response([
+                'message' => 'Anak not found'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Anak yatim count successfully',
+            'data' => $anak
+        ], 200);
+    }
+
+      /**Count Anak By Anak Piatu*/
+      public function countAnakPiatu(){
+
+        $anak = DB::table('anak')->where('status','Piatu')->count();
+
+           // if not found
+           if ($anak == null) {
+            return response([
+                'message' => 'Anak not found'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Anak piatu count successfully',
+            'data' => $anak
+        ], 200);
+    }
+
+      /**Count Anak By Anak Yatim Piatu*/
+      public function countAnakYp(){
+
+        $anak = DB::table('anak')->where('status','YP')->count();
+
+           // if not found
+           if ($anak == null) {
+            return response([
+                'message' => 'Anak not found'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Anak yatim piatu count by status successfully',
+            'data' => $anak
+        ], 200);
+    }
+
+    /**Count Anak By Anak Tidak Mampu*/
+    public function countAnakTm(){
+
+        $anak = DB::table('anak')->where('status','TM')->count();
+
+           // if not found
+           if ($anak == null) {
+            return response([
+                'message' => 'Anak not found'
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Anak tidak mampu count by status successfully',
+            'data' => $anak
+        ], 200);
+    }
+
     /**Gallery Count */
     public function countGallery(){
         $gallery = DB::table('galleries')->count();

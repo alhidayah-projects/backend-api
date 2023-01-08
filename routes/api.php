@@ -193,5 +193,9 @@ Route::get('/dashboard/donatetotal', [\App\Http\Controllers\Api\DashboardControl
 Route::get('/dashboard/article', [\App\Http\Controllers\Api\DashboardController::class, 'countArticle']);
 /**Count anak */
 Route::get('/dashboard/anak', [\App\Http\Controllers\Api\DashboardController::class, 'countAnak']);
+Route::get('/dashboard/anakyatim', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakYatim']);
+Route::get('/dashboard/anakpiatu', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakPiatu']);
+Route::get('/dashboard/anakyp', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakYp']);
+Route::get('/dashboard/anaktm', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakTm']);
 /**Count gallery */
 Route::get('/dashboard/gallery', [\App\Http\Controllers\Api\DashboardController::class, 'countGallery']);
