@@ -187,17 +187,5 @@ Route::get('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::clas
 /**********************************   Enpoint landing page Ends Here   *******************************************/
 
 /**********************************   Enpoint Dasboard Adminpage Route Starts Here   *******************************************/
-/**Count All Donate */
-Route::get('/dashboard/donate', [\App\Http\Controllers\Api\DashboardController::class, 'countDonasi']);
-/**Sum All Donate */
-Route::get('/dashboard/donatetotal', [\App\Http\Controllers\Api\DashboardController::class, 'countTotalDonate']);
-/**Count Article */
-Route::get('/dashboard/article', [\App\Http\Controllers\Api\DashboardController::class, 'countArticle']);
-/**Count anak */
-Route::get('/dashboard/anak', [\App\Http\Controllers\Api\DashboardController::class, 'countAnak']);
-Route::get('/dashboard/anakyatim', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakYatim']);
-Route::get('/dashboard/anakpiatu', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakPiatu']);
-Route::get('/dashboard/anakyp', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakYp']);
-Route::get('/dashboard/anaktm', [\App\Http\Controllers\Api\DashboardController::class, 'countAnakTm']);
-/**Count gallery */
-Route::get('/dashboard/gallery', [\App\Http\Controllers\Api\DashboardController::class, 'countGallery']);
+/**Count All Data */
+Route::get('/dashboard/count', [\App\Http\Controllers\Api\DashboardController::class, 'countData']);

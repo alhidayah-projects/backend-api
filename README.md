@@ -132,12 +132,4 @@ php artisan serve
 
 **Endpoint Dashboard**
 
--   GET : `/dashboard/donate`
--   GET : `/dashboard/donatetotal`
--   GET : `/dashboard/article`
--   GET : `/dashboard/anak`
--   GET : `/dashboard/anakyatim`
--   GET : `/dashboard/anakpiatu`
--   GET : `/dashboard/anakyp`
--   GET : `/dashboard/anaktm`
--   GET : `/dashboard/gallery`
+-   GET : `/dashboard/count`
