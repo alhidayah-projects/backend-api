@@ -27,6 +27,10 @@ class DashboardController extends Controller
         $contact = DB::table('contacts')->count();
         $contact = DB::table('contacts')->where('is_read','yes')->count();
         $contact = DB::table('contacts')->where('is_read','no')->count();
+        $rekening = DB::table('rekenings')->count();
+        $user = DB::table('users')->count();
+        $user = DB::table('users')->where('role','admin')->count();
+        $user = DB::table('users')->where('role','pengurus')->count();
 
 
         return response()->json([
@@ -34,6 +38,11 @@ class DashboardController extends Controller
             'data' => [
                 "article" => $article,
                 "gallery" => $gallery,
+                "user"    => [
+                    'total_user'=> $user,
+                    'admin'     => $user,
+                    'pengurus'  => $user,
+                ],
                 'pengurus' => $pengurus,
                 "anak"    => [
                     'total_anak'=> $anak,
@@ -51,6 +60,7 @@ class DashboardController extends Controller
                     'read'  => $contact,
                     'unread'=> $contact,
                 ],
+                "rekening" => $rekening,
             ]
         ], 200);
     }
