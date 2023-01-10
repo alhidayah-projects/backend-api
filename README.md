@@ -132,4 +132,4 @@ php artisan serve
 
 **Endpoint Dashboard**
 
--   GET : `/dashboard/count`
+-   GET : `/dashboard`

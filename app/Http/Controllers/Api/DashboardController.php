@@ -22,19 +22,19 @@ class DashboardController extends Controller
         $anakpiatu = DB::table('anak')->where('status','Piatu')->count();
         $anakyp = DB::table('anak')->where('status','YP')->count();
         $anaktm = DB::table('anak')->where('status','TM')->count();
-
         $gallery = DB::table('galleries')->count();
+        $pengurus = DB::table('pengurus')->count();
+        $contact = DB::table('contacts')->count();
+        $contact = DB::table('contacts')->where('is_read','yes')->count();
+        $contact = DB::table('contacts')->where('is_read','no')->count();
 
-        // if not found
-        if ($donate == null) {
-            return response([
-                'message' => 'Donate not found'
-            ], 200);
-        }
+
         return response()->json([
             'message' => 'Donate retrieved successfully',
             'data' => [
                 "article" => $article,
+                "gallery" => $gallery,
+                'pengurus' => $pengurus,
                 "anak"    => [
                     'total_anak'=> $anak,
                     'anak_yatim'=> $anakyatim,
@@ -42,11 +42,15 @@ class DashboardController extends Controller
                     'anak_yp'   => $anakyp,
                     'anak_tm'   => $anaktm
                 ],
-                "gallery" => $gallery,
                 "donasi" => [
                     'donate'=> $donate,
                     'total' => $totaldonate,
-                ]
+                ],
+                "contact" => [
+                    'total' => $contact,
+                    'read'  => $contact,
+                    'unread'=> $contact,
+                ],
             ]
         ], 200);
     }
