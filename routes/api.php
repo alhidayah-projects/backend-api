@@ -184,8 +184,8 @@ Route::middleware('auth:sanctum')->group(function(){
 Route::get('/pengurus', [\App\Http\Controllers\Api\PengurusController::class, 'filterPengurus']);
 /**Get Pengurus by Id */
 Route::get('/pengurus/{id}', [\App\Http\Controllers\Api\PengurusController::class, 'getPengurusbyId']);
-/**********************************   Enpoint landing page Ends Here   *******************************************/
+/**********************************   Enpoint Pengurus page Ends Here   *******************************************/
 
-/**********************************   Enpoint Dasboard Adminpage Route Starts Here   *******************************************/
-/**Count All Data */
-Route::get('/dashboard/count', [\App\Http\Controllers\Api\DashboardController::class, 'countData']);
+/**********************************   Enpoint Dasboard Route Starts Here   *******************************************/
+Route::get('/dashboard', [\App\Http\Controllers\Api\DashboardController::class, 'countData']);
+/**********************************   Enpoint Dashboard page Ends Here   *******************************************/
