@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('subject');
             $table->text('keterangan');
+            $table->enum('is_read', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

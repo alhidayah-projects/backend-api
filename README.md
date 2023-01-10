@@ -48,6 +48,7 @@ php artisan serve
 -   GET : `/api/contact/{id}`
 -   DELETE : `/api/contact/{id}`
 -   DELETE : `/api/contact`
+-   PUT : `/api/contact/{id}`
 
 **Endpoint Rekenings**
 
