@@ -180,14 +180,19 @@ class DonateController extends Controller
     /**filter donate by status check, approve, reject*/
     public function filterDonate(Request $request)
     {
-        $donate = Donate::where('status', 'like', '%' . $request->status . '%')
-            ->paginate(10);
-        // if not found
-        if ($donate == null) {
-            return response([
-                'message' => 'donate not found'
-            ], 200);
+        $search = $request->query('search');
+        if($search){
+            $donate = Donate::where('status', 'like', '%' . $search . '%')
+                ->paginate(10);
+
+                return response()->json([
+                    'message' => 'Donate retrieved successfully',
+                    'data' => $donate
+                ], 200);
         }
+
+        $donate = Donate::latest()->paginate(10);
+        
         return response()->json([
             'message' => 'Donate retrieved successfully',
             'data' => $donate

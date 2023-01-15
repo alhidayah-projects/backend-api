@@ -37,13 +37,21 @@ class ArticleController extends Controller
 
     }
 
-    public function getAllArticle(){
+    public function getAllArticle(Request $request){
+        $search = $request->query('search');
+        if ($search) {
+            $article = Article::where('title', 'like', '%' . $search . '%' )->paginate(10);
+
+            return response()->json([
+                'message' => 'article retrieved successfully',
+                'data' => $article
+            ] , 200);
+        }
       
         // join table
         $article = Article::join('users', 'users.id', '=', 'articles.author_id')
         ->select('articles.*', 'users.name as author')
         ->paginate(10);
-
 
         // if not found data
         if($article->isEmpty()){

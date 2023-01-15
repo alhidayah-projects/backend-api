@@ -163,14 +163,20 @@ class RekeningController extends Controller
     /**search rekening by nama bank */
     public function filterRekening(Request $request)
     {
-        $rekening = Rekening::where('nama_bank', 'like', '%' . $request->nama_bank . '%')
-            ->paginate(10);
-        // if not found
-        if ($rekening == null) {
-            return response([
-                'message' => 'rekening not found'
-            ], 200);
+        $search = $request->query('search');
+
+        if($search){
+            $rekening = Rekening::where('nama_bank', 'like', '%' . $search . '%')
+                ->paginate(10);
+
+                return response()->json([
+                    'message' => 'rekening retrieved successfully',
+                    'data' => $rekening
+                ], 200);
         }
+        
+        $rekening = Rekening::latest()->paginate(10);
+        
         return response()->json([
             'message' => 'rekening retrieved successfully',
             'data' => $rekening

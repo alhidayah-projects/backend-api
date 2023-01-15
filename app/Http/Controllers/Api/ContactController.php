@@ -151,17 +151,20 @@ class ContactController extends Controller
     /** filter contact data by name */
     public function filterContact(Request $request)
     {
-        $contact = Contact::where('name', 'like', '%' . $request->name . '%')
-        ->where('email', 'like', '%' . $request->email . '%')
-        ->paginate(10); 
+        $search = $request->query('search');
 
-        // if data Contact not found
-        if (count($contact) == 0) {
+        if($search){
+            $contact = Contact::where('name', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
+            ->paginate(10); 
+
             return response()->json([
-                'message' => 'data Contact not found',
+                'message' => 'data Contact has been found successfully',
                 'data' => $contact
             ], 200);
         }
+
+        $contact = Contact::latest()->paginate(10);
 
         return response()->json([
             'message' => 'data Contact has been found successfully',
