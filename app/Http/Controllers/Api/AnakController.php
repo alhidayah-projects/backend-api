@@ -183,7 +183,7 @@ class AnakController extends Controller
 
         if($search){
             $anak = Anak::where('nik', 'like', '%' . $search . '%')
-            ->where('nama_anak', 'like', '%' . $search . '%')
+            ->orWhere('nama_anak', 'like', '%' . $search . '%')
             ->paginate(10);
 
             return response()->json([

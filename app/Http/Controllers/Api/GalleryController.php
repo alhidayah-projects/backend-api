@@ -38,14 +38,25 @@ class GalleryController extends Controller
     }
 
     // get all gallery
-    public function getAllGallery()
+    public function getAllGallery(Request $request)
     {
-        $gallery = Gallery::all();
+        $search = $request->query('search');
+        if ($search) {
+            $gallery = Gallery::where('title', 'like', '%' . $search . '%' )->paginate(10);
+
+            return response()->json([
+                'message' => 'gallery retrieved successfully',
+                'data' => $gallery
+            ] , 200);
+        }
+
         $gallery = Gallery::paginate(10);
-        // if failed
-        if (!$gallery) {
+
+        // if not found data
+        if($gallery->isEmpty()){
             return response([
-                'message' => 'failed get all gallery'
+                'message' => 'gallery not found',
+                'data' => $gallery
             ], 200);
         }
 

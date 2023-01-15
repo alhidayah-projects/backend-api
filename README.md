@@ -110,20 +110,22 @@ php artisan serve
 -   GET : `api/landing/visi-misi`
 -   GET : `api/landing/donate/{id}`
 -   GET : `api/landing/contact`
-
-**Endpoint Filter**
-
--   GET : `api/anak?nama_anak=aulia&nik=123456789012345`
 -   GET : `api/landing/article?title=Article`
 -   GET : `api/landing/gallery?title=my gallery`
--   GET : `api/contact?name=panji&email=panjiprasetyo025@gmail.com`
--   GET : `api/donate?status=approve`
--   GET : `api/rekening?nama_bank=bni`
+
+**Endpoint Filter Table**
+
+-   GET : `api/anak?search=123456789012345`
+-   GET : `api/pengurus?search=fajar`
+-   GET : `api/contact?search=fajar@mail.com`
+-   GET : `api/donate?search=approve`
+-   GET : `api/rekening?search=bni`
+-   GET : `api/article?search=article 1`
+-   GET : `api/gallery?search=my gallery`
 
 **Endpoint Pengurus**
 
 -   POST : `api/pengurus`
--   GET : `api/pengurus?jabatan=ketua&nama_pengurus=dadan`
 -   GET : `api/pengurus`
 -   GET : `api/pengurus/{id}`
 -   PUT : `api/pengurus/{id}`
