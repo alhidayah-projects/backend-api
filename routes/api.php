@@ -12,7 +12,7 @@ Route::middleware('auth:sanctum')->group(function () {
     /**logout*/
     Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
     /**update user*/
-    Route::put('/user', [\App\Http\Controllers\Api\AuthController::class, 'update']);
+    Route::put('/user/{id}', [\App\Http\Controllers\Api\AuthController::class, 'updateProfile']);
     /**delete user*/
     Route::delete('/user/{id}', [\App\Http\Controllers\Api\AuthController::class, 'destroy']);
 });

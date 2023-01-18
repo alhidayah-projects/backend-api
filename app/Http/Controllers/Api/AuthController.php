@@ -84,35 +84,43 @@ class AuthController extends Controller
         ], 200);
     }
 
-    // update user profile
-    public function update(Request $request)
+    // update user with password and without password
+    public function updateProfile(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:users,email,' . Auth::user()->id
-        ]);
-        if(Auth::check())
-        {
-            if($request->input('password'))
-            {
-                $hashed = Hash::make($request->input('password'));
-                $user = User::find(Auth::user()->id);
-                $user->name = $request->input('name');
-                $user->email = $request->input('email');
-                $user->password = $hashed;
-                $user->update();
-            }
-
-            $user = User::find(Auth::user()->id);
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->update();
+        if (Auth::user()->role != 'admin') {
+            return response([
+                'message' => 'you are not admin, you can not update user'
+            ], 403);
         }
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found',
+            ],200);
+        }
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'role' => 'required',
+            'email' => 'required|string|max:255|unique:users,email,' . $id
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json($validator->errors());
+        }
+
+        $user->name = $request->name;
+        $user->role = $request->role;
+        $user->email = $request->email;
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->update();
         return response()->json([
-            'message' => 'update success',
+            'success' => true,
+            'message' => 'User data successfully updated',
             'data' => $user
         ], 200);
-
     }
 
     // get all user
