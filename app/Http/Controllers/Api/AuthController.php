@@ -157,4 +157,21 @@ class AuthController extends Controller
             'message' => 'User data successfully deleted',
         ], 200);
     }
+
+    /**Get User By Id */
+    public function GetUserById($id){
+
+        $user = User::find($id);
+        // if failed
+        if (!$user) {
+            return response([
+                'message' => 'failed get user by id'
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'success get user by id',
+            'data' => $user
+        ], 200);
+    }
 }

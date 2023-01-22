@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
 /**get all user*/
 Route::get('/user', [\App\Http\Controllers\Api\AuthController::class, 'getAllUser']);
+ /**get by Id User */
+ Route::get('/user/{id}', [\App\Http\Controllers\Api\AuthController::class, 'GetUserById']);
 /**forgot password*/
 Route::post('/forgot-password', [\App\Http\Controllers\Api\NewPasswordController::class, 'forgotPassword']);
 /**reset password*/
