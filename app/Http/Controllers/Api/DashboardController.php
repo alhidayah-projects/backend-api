@@ -28,9 +28,9 @@ class DashboardController extends Controller
         $contact = DB::table('contacts')->where('is_read','yes')->count();
         $contact = DB::table('contacts')->where('is_read','no')->count();
         $rekening = DB::table('rekenings')->count();
-        $user = DB::table('users')->count();
-        $user = DB::table('users')->where('role','admin')->count();
-        $user = DB::table('users')->where('role','pengurus')->count();
+        $totaluser = DB::table('users')->count();
+        $admin = DB::table('users')->where('role','admin')->count();
+        $pengurus = DB::table('users')->where('role','pengurus')->count();
 
 
         return response()->json([
@@ -39,9 +39,9 @@ class DashboardController extends Controller
                 "article" => $article,
                 "gallery" => $gallery,
                 "user"    => [
-                    'total_user'=> $user,
-                    'admin'     => $user,
-                    'pengurus'  => $user,
+                    'total_user'=> $totaluser,
+                    'admin'     => $admin,
+                    'pengurus'  => $pengurus,
                 ],
                 'pengurus' => $pengurus,
                 "anak"    => [

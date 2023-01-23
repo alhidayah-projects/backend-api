@@ -39,6 +39,7 @@ php artisan serve
 -   POST :`/api/forgot-password`
 -   POST :`/api/reset-password`
 -   GET : `/api/user`
+-   GET : `/api/user/{id}`
 -   DELETE : `/api/user/{id}` only admin
 
 **Endpoint Contact**
