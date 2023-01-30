@@ -12,7 +12,6 @@ Content-Type: application/json
 POST http://127.0.0.1:8000/api/register
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 3|v4HvEVKiU90FVrIlRwBNNerYI3PSqmiaqh9yllXT
     
     {
         "name": "jaka",

@@ -93,14 +93,6 @@ class ArticleController extends Controller
 
     /**Update Article */
     public function updateArticle(Request $request, $id){
-
-         // only admin can create new article
-         if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not update article',
-                'data' => $article
-            ], 403);
-        }
         $article = Article::find($id);
 
         // Validate form
@@ -144,12 +136,6 @@ class ArticleController extends Controller
     /**Delete Article By Id**/
     public function deleteArticle($id)
     {
-        if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not delete article'
-            ], 403);
-        }
-
         $article = Article::find($id);
 
         // if empty data
@@ -172,14 +158,7 @@ class ArticleController extends Controller
     /**Delete All Article */
     public function deleteAllArticle(){
 
-        $article = Article::all();
-        // only admin can create new article
-        if (Auth::user()->role != 'admin') {
-            return response ([
-                'message' => 'you are not admin, you can not delete all article',
-                'data' => $article
-            ], 403);
-        }
+
         // if empty data
         if($article->isEmpty()){
             return response ([

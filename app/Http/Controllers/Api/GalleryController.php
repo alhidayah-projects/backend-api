@@ -86,12 +86,6 @@ class GalleryController extends Controller
     // delete gallery by id
     public function deleteGalleryById($id)
     {
-        if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not delete gallery'
-            ], 403);
-        }
-
         $gallery = Gallery::find($id);
 
         // if empty data
@@ -145,13 +139,6 @@ class GalleryController extends Controller
     /** update gallery */
     public function updateGallery(Request $request, $id)
     {
-        // only admin can create new gallery
-        if (Auth::user()->role != 'admin') {
-            return response([
-                'message' => 'you are not admin, you can not update gallery',
-                'data' => $gallery
-            ], 403);
-        }
         $gallery = Gallery::find($id);
 
         // Validate form
